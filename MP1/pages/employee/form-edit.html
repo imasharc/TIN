@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShaReCon</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to ShaReCon</h1>
+        <img src="../../images/sharecon-puzzle-1.png" alt="ShaReCon logo" width="300px">
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="">Main page</a></li>
+            <li><a href="">Employees</a></li>
+            <li><a href="">Projects</a></li>
+            <li><a href="">Customers</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Edit employee</h2>
+
+        <form>
+            <label for="firstName">Name: *</label>
+            <input type="text" name="firstName" id="firstName" value="Brendan" required>
+            <span id="errorFirstName"></span>
+
+            <label for="lastName">Surname: *</label>
+            <input type="text" name="lastName" id="lastName" value="Eich" required>
+            <span id="errorLastName"></span>
+            
+            <label for="email">Surname: *</label>
+            <input type="text" name="email" id="email" value="brendan.eich@sharecon.com" required>
+            <span id="errorEmail"></span>
+            
+            <label for="role">Role: </label>
+            <input type="text" name="email" id="role" value="Senior Javascript Developer">
+            <span id="errorRole"></span>
+
+            <div>
+                <input type="submit" value="Add">
+                <a href="">Cancel</a>
+                <p id="errorsSummary"></p>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
