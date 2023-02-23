@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShaReCon</title>
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
     <header>
@@ -16,24 +17,24 @@
         <ul>
             <li><a href="../../index.html">Main page</a></li>
             <li><a href="../employee/list.html">Employees</a></li>
-            <li><a href="">Projects</a></li>
-            <li><a href="list.html">Clients</a></li>
+            <li><a href="../project_/list.html">Projects</a></li>
+            <li><a href="list.html" class="active">Clients</a></li>
         </ul>
     </nav>
 
     <main>
         <h2>Client form</h2>
 
-        <form>
-            <label for="firstName">Name: *</label>
+        <form class="form">
+            <label for="firstName">Name: <span class="symbol-required">*</span></label>
             <input type="text" name="firstName" id="firstName" required>
             <span id="errorFirstName"></span>
 
-            <label for="lastName">Surname: *</label>
+            <label for="lastName">Surname: <span class="symbol-required">*</span></label>
             <input type="text" name="lastName" id="lastName" required>
             <span id="errorLastName"></span>
             
-            <label for="email">E-mail: *</label>
+            <label for="email">E-mail: <span class="symbol-required">*</span></label>
             <input type="text" name="email" id="email" required>
             <span id="errorEmail"></span>
             
@@ -41,12 +42,16 @@
             <input type="text" name="company" id="company">
             <span id="errorRole"></span>
 
-            <div>
-                <input type="submit" value="Add">
-                <a href="./list.html">Cancel</a>
+            <div class="form-buttons">
+                <input type="submit" value="Add" class="form-button-submit">
+                <a href="list.html" class="form-button-cancel">Cancel</a>
                 <p id="errorsSummary"></p>
             </div>
         </form>
     </main>
 </body>
+
+<footer>
+    <p>Antoni Malinowski s20824</p>
+</footer>
 </html>

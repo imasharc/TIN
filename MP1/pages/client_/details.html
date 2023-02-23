@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShaReCon</title>
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
     <header>
@@ -16,36 +17,39 @@
         <ul>
             <li><a href="../../index.html">Main page</a></li>
             <li><a href="../employee/list.html">Employees</a></li>
-            <li><a href="">Projects</a></li>
-            <li><a href="list.html">Clients</a></li>
+            <li><a href="../project_/list.html">Projects</a></li>
+            <li><a href="list.html" class="active">Clients</a></li>
         </ul>
     </nav>
 
     <main>
         <h2>Client form</h2>
 
-        <form>
-            <label for="firstName">Name: *</label>
+        <form class="form">
+            <label for="firstName">Name: <span class="symbol-required">*</span></label>
             <input type="text" name="firstName" id="firstName" value="Antoni" disabled>
             <span id="errorFirstName"></span>
 
-            <label for="lastName">Surname: *</label>
+            <label for="lastName">Surname: <span class="symbol-required">*</span></label>
             <input type="text" name="lastName" id="lastName" value="Malinowski" disabled>
             <span id="errorLastName"></span>
             
-            <label for="email">E-mail: *</label>
+            <label for="email">E-mail: <span class="symbol-required">*</span></label>
             <input type="text" name="email" id="email" value="antoni.malinowski@sharecon.com" disabled>
             <span id="errorEmail"></span>
             
             <label for="company">Company: </label>
             <input type="text" name="company" id="company" value="ShaReCon" disabled>
             <span id="errorRole"></span>
+        </form>
 
-            <a href="./form-edit.html">Edit</a>
+            <div class="form-buttons">
+                <a href="./form-edit.html" class="list-actions-button-edit">Edit</a>
+            </div>
 
             <h2>Project details</h2>
 
-            <table>
+            <table class="table-list">
                 <thead>
                     <tr>
                         <th>Employee</th>
@@ -73,8 +77,13 @@
                 </tbody>
             </table>
 
-            <a href="./list.html">Back</a>
-        </form>
+            <div class="form-buttons">
+                <a href="./list.html" class="list-actions-button-details">Back</a>
+            </div>
     </main>
 </body>
+
+<footer>
+    <p>Antoni Malinowski s20824</p>
+</footer>
 </html>
