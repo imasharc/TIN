@@ -9,7 +9,7 @@
 <body>
     <header>
         <h1>Welcome to ShaReCon</h1>
-        <img src="images/sharecon-puzzle-1.png" alt="ShaReCon logo" width="300px">
+        <img src="../../images/sharecon-puzzle-1.png" alt="ShaReCon logo" width="300px">
     </header>
     
     <nav>
@@ -28,11 +28,25 @@
             <label for="firstName">Name: *</label>
             <input type="text" name="firstName" id="firstName" required>
             <span id="errorFirstName">Field is required.</span>
+            
+            <label for="lastName">Surname: *</label>
+            <input type="text" name="lastName" id="lastName" required>
+            <span id="errorLastName">Field is required.</span>
+
+            <label for="email">E-mail: *</label>
+            <input type="text" name="email" id="email" required>
+            <span id="errorEmail">Field is required.</span>
+
+            <label for="role">Role: </label>
+            <input type="text" name="role" id="role">
+            <span id="errorRole"></span>
+
+            <p id="errorsSummary">Form contains errors.</p>
 
             <div>
                 <input type="submit" value="Add">
                 <a href="">Cancel</a>
-                <p id="errorsSummary">Form contains errors.</p>
+                
             </div>
         </form>
     </main>
