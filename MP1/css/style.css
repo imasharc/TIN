@@ -1,4 +1,17 @@
-﻿html {
+﻿/* colors to use
+#6890c3
+#eaecf1
+#a3b6cd
+#577bb4
+#87a2c5
+#b3ccdd
+#bcbccb
+#4b7cb2
+#4b7cb2
+#8cb4d1
+ */
+
+html {
     background-color: #6890c3;
     font-family: sans-serif;
 }
@@ -82,7 +95,7 @@ main h2 {
 .table-list,
 .table-list th,
 .table-list td {
-    border: 1px solid #bdc3c7;
+    border: 1px solid #4b7cb2;
 }
 
 .table-list th,
@@ -92,7 +105,7 @@ main h2 {
 
 .table-list th,
 .table-list tbody tr:nth-child(even) {
-    background-color: #ecf0f1;
+    background-color: #87a2c5;
 }
 
 .list-actions {
@@ -123,7 +136,7 @@ main h2 {
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 5px;
-    color: white;
+    color: #eaecf1;
     text-decoration: none;
     text-align: center;
     font-size: 0.8rem;

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShaReCon</title>
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
     <header>
@@ -24,12 +25,12 @@
     <main>
         <h2>Project form</h2>
 
-        <form>
-            <label for="projectName">Name: *</label>
+        <form class="form">
+            <label for="projectName">Name: <span class="symbol-required">*</span></label>
             <input type="text" name="projectName" id="projectName" required>
             <span id="errorProject"></span>
 
-            <label for="client">Client: *</label>
+            <label for="client">Client: <span class="symbol-required">*</span></label>
             <select name="client" id="client">
                 <option>-- Choose client --</option>
                 <option value="1">ShaReCon</option>
@@ -37,7 +38,7 @@
             </select>
             <span id="errorClient"></span>
 
-            <label for="employee">Employee: *</label>
+            <label for="employee">Employee: <span class="symbol-required">*</span></label>
             <select name="employee" id="employee">
                 <option>-- Choose employee --</option>
                 <option value="1">Brendan Eich</option>
@@ -46,21 +47,21 @@
             </select>
             <span id="errorEmployee"></span>
 
-            <label for="start">Start: *</label>
+            <label for="start">Start: <span class="symbol-required">*</span></label>
             <input type="text" name="start" id="start" required>
             <span id="errorStart"></span>
             
-            <label for="deadline">Deadline: *</label>
+            <label for="deadline">Deadline: <span class="symbol-required">*</span></label>
             <input type="text" name="deadline" id="deadline" required>
             <span id="errorDeadline"></span>
             
-            <label for="budget">Budget: *</label>
-            <input type="text" name="budget" id="budget">
+            <label for="budget">Budget: <span class="symbol-required">*</span></label>
+            <input type="text" name="budget" id="budget" required>
             <span id="errorBudget"></span>
 
-            <div>
-                <input type="submit" value="Add">
-                <a href="list.html">Cancel</a>
+            <div class="form-buttons">
+                <input type="submit" value="Add" class="form-button-submit">
+                <a href="list.html" class="form-button-cancel">Cancel</a>
                 <p id="errorsSummary"></p>
             </div>
         </form>
