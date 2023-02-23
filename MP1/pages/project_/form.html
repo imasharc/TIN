@@ -29,6 +29,23 @@
             <input type="text" name="projectName" id="projectName" required>
             <span id="errorProject"></span>
 
+            <label for="client">Client: *</label>
+            <select type="text" name="client" id="client" required>
+                <option>-- Choose client --</option>
+                <option value="1">ShaReCon</option>
+                <option value="2">GUN</option>
+            </select>
+            <span id="errorClient"></span>
+
+            <label for="employee">Employee: *</label>
+            <select type="text" name="employee" id="employee" required>
+                <option>-- Choose employee --</option>
+                <option value="1">Brendan Eich</option>
+                <option value="2">Linus Torvalds</option>
+                <option value="3">Richard Hendricks</option>
+            </select>
+            <span id="errorEmployee"></span>
+
             <label for="start">Start: *</label>
             <input type="text" name="start" id="start" required>
             <span id="errorStart"></span>
@@ -37,7 +54,7 @@
             <input type="text" name="deadline" id="deadline" required>
             <span id="errorDeadline"></span>
             
-            <label for="budget">Budget: </label>
+            <label for="budget">Budget: *</label>
             <input type="text" name="budget" id="budget">
             <span id="errorBudget"></span>
 
