@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShaReCon</title>
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
     <header>
@@ -15,15 +16,15 @@
     <nav>
         <ul>
             <li><a href="../../index.html">Main page</a></li>
-            <li><a href="list.html">Employees</a></li>
-            <li><a href="">Projects</a></li>
+            <li><a href="list.html" class="active">Employees</a></li>
+            <li><a href="../project_/list.html">Projects</a></li>
             <li><a href="../client_/list.html">Clients</a></li>
         </ul>
     </nav>
 
     <main>
         <h2>Employee list</h2>
-        <table>
+        <table class="table-list">
             <thead>
                 <tr>
                     <th>First Name</th>
@@ -40,15 +41,15 @@
                     <td>brendan.eich@sharecon.com</td>
                     <td>Senior Javascript Developer</td>
                     <td>
-                        <ul>
+                        <ul class="list-actions">
                             <li>
-                                <a href="./details.html">Details</a>
+                                <a href="./details.html" class="list-actions-button-details">Details</a>
                             </li>
                             <li>
-                                <a href="./form-edit.html">Edit</a>
+                                <a href="./form-edit.html" class="list-actions-button-edit">Edit</a>
                             </li>
                             <li>
-                                <a href="">Delete</a>
+                                <a href="" class="list-actions-button-delete">Delete</a>
                             </li>
                         </ul>
                     </td>
@@ -59,15 +60,15 @@
                     <td>linus.torvalds@sharecon.com</td>
                     <td>Senior System Engineer</td>
                     <td>
-                        <ul>
+                        <ul class="list-actions">
                             <li>
-                                <a href="details.html">Details</a>
+                                <a href="./details.html" class="list-actions-button-details">Details</a>
                             </li>
                             <li>
-                                <a href="form-edit.html">Edit</a>
+                                <a href="./form-edit.html" class="list-actions-button-edit">Edit</a>
                             </li>
                             <li>
-                                <a href="">Delete</a>
+                                <a href="" class="list-actions-button-delete">Delete</a>
                             </li>
                         </ul>
                     </td>
@@ -78,15 +79,15 @@
                     <td>richard.hendricks@sharecon.com</td>
                     <td>Senior Network Engineer</td>
                     <td>
-                        <ul>
+                        <ul class="list-actions">
                             <li>
-                                <a href="details.html">Details</a>
+                                <a href="./details.html" class="list-actions-button-details">Details</a>
                             </li>
                             <li>
-                                <a href="form-edit.html">Edit</a>
+                                <a href="./form-edit.html" class="list-actions-button-edit">Edit</a>
                             </li>
                             <li>
-                                <a href="">Delete</a>
+                                <a href="" class="list-actions-button-delete">Delete</a>
                             </li>
                         </ul>
                     </td>
@@ -94,7 +95,7 @@
             </tbody>
         </table>
 
-        <p><a href="./form.html">Add new employee</a></p>
+        <p><a href="form.html" class="button-add">Add new project</a></p>
     </main>
 </body>
 </html>
