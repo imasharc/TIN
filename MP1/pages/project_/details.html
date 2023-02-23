@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShaReCon</title>
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
     <header>
@@ -16,7 +17,7 @@
         <ul>
             <li><a href="../../index.html">Main page</a></li>
             <li><a href="../employee/list.html">Employees</a></li>
-            <li><a href="list.html">Projects</a></li>
+            <li><a href="list.html" class="active">Projects</a></li>
             <li><a href="../client_/list.html">Clients</a></li>
         </ul>
     </nav>
@@ -24,12 +25,12 @@
     <main>
         <h2>Project details</h2>
 
-        <form>
-            <label for="projectName">Name: *</label>
+        <form class="form">
+            <label for="projectName">Name: <span class="symbol-required">*</span></label>
             <input type="text" name="projectName" id="projectName" value="File sharing infrastructure" disabled>
             <span id="errorProjectName"></span>
 
-            <label for="client">Client: *</label>
+            <label for="client">Client: <span class="symbol-required">*</span></label>
             <select name="client" id="client" disabled>
                 <option>-- Choose client --</option>
                 <option value="1" selected>ShaReCon</option>
@@ -37,7 +38,7 @@
             </select>
             <span id="errorClient"></span>
 
-            <label for="employee">Employee: *</label>
+            <label for="employee">Employee: <span class="symbol-required">*</span></label>
             <select name="employee" id="employee" disabled>
                 <option>-- Choose employee --</option>
                 <option value="1">Brendan Eich</option>
@@ -46,24 +47,21 @@
             </select>
             <span id="errorEmployee"></span>
 
-            <label for="start">Start: *</label>
+            <label for="start">Start: <span class="symbol-required">*</span></label>
             <input type="date" name="start" id="start" value="2026-06-20" disabled>
             <span id="errorStart"></span>
             
-            <label for="deadline">Deadline: *</label>
+            <label for="deadline">Deadline: <span class="symbol-required">*</span></label>
             <input type="date" name="deadline" id="deadline" value="2026-10-19" disabled>
             <span id="errorDeadline"></span>
             
-            <label for="budget">Budget: </label>
+            <label for="budget">Budget: <span class="symbol-required">*</span></label>
             <input type="number" name="budget" id="budget" value="2200" min="0" max="1000000000" step="10" disabled>
             <span id="errorBudget"></span>
 
-            <a href="form-edit.html">Edit</a>
-
-            <div>
-                <input type="submit" value="Add">
-                <a href="list.html">Cancel</a>
-                <p id="errorsSummary"></p>
+            <div class="form-buttons">
+                <a href="./form-edit.html" class="list-actions-button-edit">Edit</a>
+                <a href="./list.html" class="list-actions-button-details">Back</a>
             </div>
         </form>
     </main>
