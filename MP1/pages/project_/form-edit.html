@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShaReCon</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to ShaReCon</h1>
+        <img src="../../images/sharecon-puzzle-1.png" alt="ShaReCon logo" width="300px">
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="../../index.html">Main page</a></li>
+            <li><a href="../employee/list.html">Employees</a></li>
+            <li><a href="list.html">Projects</a></li>
+            <li><a href="../client_/list.html">Clients</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Edit project</h2>
+
+        <form>
+            <label for="projectName">Name: *</label>
+            <input type="text" name="projectName" id="projectName" value="Node storage optimization" required>
+            <span id="errorProject"></span>
+
+            <label for="start">Start: *</label>
+            <input type="date" name="start" id="start" value="2026-06-20" required>
+            <span id="errorStart"></span>
+            
+            <label for="deadline">Deadline: *</label>
+            <input type="date" name="deadline" id="deadline" value="2026-10-19" required>
+            <span id="errorDeadline"></span>
+            
+            <label for="budget">Budget: </label>
+            <input type="number" name="budget" id="budget" value="2200" min="0" max="1000000000" step="10" required>
+            <span id="errorBudget"></span>
+
+            <div>
+                <input type="submit" value="Add">
+                <a href="list.html">Cancel</a>
+                <p id="errorsSummary"></p>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
