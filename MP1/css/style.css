@@ -262,6 +262,14 @@ textarea {
     color: #c0392b;
 }
 
+.errors-text {
+    display: block;
+    font-size: 0.85rem;
+    line-height: 2.25rem;
+    margin-top: 0.5rem;
+    color: #c0392b;
+}
+
 @media all and (max-width: 720px) {
 
     header {
