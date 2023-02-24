@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShaReCon</title>
     <link rel="stylesheet" href="../../css/style.css">
+    <script type="application/javascript" src="../../js/validationCommon.js"></script>
+    <script type="application/javascript" src="../../js/validationClientForm.js"></script>
 </head>
 <body>
     <header>
@@ -25,27 +27,28 @@
     <main>
         <h2>Client form</h2>
 
-        <form class="form">
+        <form class="form" novalidate onsubmit="return validateForm();">
             <label for="firstName">Name: <span class="symbol-required">*</span></label>
             <input type="text" name="firstName" id="firstName" value="Antoni" required>
-            <span id="errorFirstName"></span>
+            <span id="errorFirstName" class="errors-text"></span>
 
             <label for="lastName">Surname: <span class="symbol-required">*</span></label>
             <input type="text" name="lastName" id="lastName" value="Malinowski" required>
-            <span id="errorLastName"></span>
+            <span id="errorLastName" class="errors-text"></span>
             
             <label for="email">E-mail: <span class="symbol-required">*</span></label>
             <input type="text" name="email" id="email" value="antoni.malinowski@sharecon.com" required>
-            <span id="errorEmail"></span>
+            <span id="errorEmail" class="errors-text"></span>
             
             <label for="company">Company: </label>
             <input type="text" name="company" id="company" value="ShaReCon">
             <span id="errorRole"></span>
 
+            <span id="errorsSummary" class="errors-text"></span>
+
             <div class="form-buttons">
                 <input type="submit" value="Add" class="form-button-submit">
                 <a href="list.html" class="form-button-cancel">Cancel</a>
-                <p id="errorsSummary"></p>
             </div>
         </form>
     </main>
