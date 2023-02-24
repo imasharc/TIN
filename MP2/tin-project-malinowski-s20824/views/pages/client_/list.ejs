@@ -1,26 +1,4 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShaReCon</title>
-    <link rel="stylesheet" href="../../css/style.css">
-</head>
-<body>
-    <header>
-        <h1>Welcome to ShaReCon</h1>
-        <img src="../../images/sharecon-puzzle-1.png" alt="ShaReCon logo" width="300">
-    </header>
-    
-    <nav>
-        <ul>
-            <li><a href="../../index.html">Main page</a></li>
-            <li><a href="../employee/list.html">Employees</a></li>
-            <li><a href="../project_/list.html">Projects</a></li>
-            <li><a href="list.html" class="active">Clients</a></li>
-        </ul>
-    </nav>
+﻿<%- include('../../fragment/header.ejs') %>
 
     <main>
         <h2>Client list</h2>
@@ -43,10 +21,10 @@
                     <td>
                         <ul class="list-actions">
                             <li>
-                                <a href="./details.html" class="list-actions-button-details">Details</a>
+                                <a href="/clients/details/:clientId" class="list-actions-button-details">Details</a>
                             </li>
                             <li>
-                                <a href="./form-edit.html" class="list-actions-button-edit">Edit</a>
+                                <a href="/clients/edit/:clientId" class="list-actions-button-edit">Edit</a>
                             </li>
                             <li>
                                 <a href="" class="list-actions-button-delete">Delete</a>
@@ -62,10 +40,10 @@
                     <td>
                         <ul class="list-actions">
                             <li>
-                                <a href="./details.html" class="list-actions-button-details">Details</a>
+                                <a href="/clients/details/:clientId" class="list-actions-button-details">Details</a>
                             </li>
                             <li>
-                                <a href="./form-edit.html" class="list-actions-button-edit">Edit</a>
+                                <a href="/clients/edit/:clientId" class="list-actions-button-edit">Edit</a>
                             </li>
                             <li>
                                 <a href="" class="list-actions-button-delete">Delete</a>
@@ -76,11 +54,8 @@
             </tbody>
         </table>
 
-        <p><a href="form.html" class="button-add">Add new client</a></p>
+        <p><a href="/clients/add" class="button-add">Add new client</a></p>
     </main>
 </body>
 
-<footer>
-    <p>Antoni Malinowski s20824</p>
-</footer>
-</html>
+<%- include('../../fragment/footer.ejs') %>

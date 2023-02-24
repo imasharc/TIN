@@ -9,6 +9,7 @@ var indexRouter = require("./routes/index");
 var app = express();
 const employeeRouter = require("./routes/employeeRoute");
 const projectRouter = require("./routes/projectRoute");
+const clientRouter = require("./routes/clientRoute");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/employees", employeeRouter);
 app.use("/projects", projectRouter);
+app.use("/clients", clientRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
