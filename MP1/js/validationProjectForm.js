@@ -93,7 +93,7 @@
   } else if (!checkDateIfAfter(deadline.value, startDate.value)) {
     valid = false;
     deadline.classList.add("error-input");
-    errorDeadline.innerText = "The date cannot be before the starting date";
+    errorDeadline.innerText = "Deadline cannot be before the starting date";
   }
 
   if (!checkRequired(budget.value)) {
