@@ -9,3 +9,7 @@ exports.showAddEmployeeForm = (req, res, next) => {
 exports.showEmployeeDetails = (req, res, next) => {
   res.render("pages/employee/details", { navLocation: "emp" });
 };
+
+exports.showEditEmployeeForm = (req, res, next) => {
+  res.render("pages/employee/form-edit", { navLocation: "emp" });
+};
