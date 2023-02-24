@@ -1,26 +1,4 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShaReCon</title>
-    <link rel="stylesheet" href="../../css/style.css">
-</head>
-<body>
-    <header>
-        <h1>Welcome to ShaReCon</h1>
-        <img src="../../images/sharecon-puzzle-1.png" alt="ShaReCon logo" width="300">
-    </header>
-    
-    <nav>
-        <ul>
-            <li><a href="../../index.html">Main page</a></li>
-            <li><a href="../employee/list.html">Employees</a></li>
-            <li><a href="list.html" class="active">Projects</a></li>
-            <li><a href="../client_/list.html">Clients</a></li>
-        </ul>
-    </nav>
+﻿<%- include('../../fragment/header.ejs') %>
 
     <main>
         <h2>Project details</h2>
@@ -61,13 +39,10 @@
         </form>
 
             <div class="form-buttons">
-                <a href="./form-edit.html" class="list-actions-button-edit">Edit</a>
-                <a href="./list.html" class="list-actions-button-details">Back</a>
+                <a href="/projects/edit/:projectId" class="list-actions-button-edit">Edit</a>
+                <a href="/projects" class="list-actions-button-details">Back</a>
             </div>
     </main>
 </body>
 
-<footer>
-    <p>Antoni Malinowski s20824</p>
-</footer>
-</html>
+<%- include('../../fragment/footer.ejs') %>
