@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShaReCon</title>
     <link rel="stylesheet" href="../../css/style.css">
+    <script type="application/javascript" src="../../js/validationCommon.js"></script>
+    <script type="application/javascript" src="../../js/validationProjectForm.js"></script>
 </head>
 <body>
     <header>
@@ -25,44 +27,44 @@
     <main>
         <h2>Edit project</h2>
 
-        <form class="form">
+        <form class="form" novalidate onsubmit="return validateForm();">
             <label for="projectName">Name: <span class="symbol-required">*</span></label>
             <input type="text" name="projectName" id="projectName" value="File sharing infrastructure" required>
-            <span id="errorProject"></span>
+            <span id="errorProjectName" class="errors-text"></span>
 
-            <label for="client">Client: <span class="symbol-required">*</span></label>
-            <select name="client" id="client">
+            <label for="clientName">Client: <span class="symbol-required">*</span></label>
+            <select name="clientName" id="clientName">
                 <option>-- Choose client --</option>
-                <option value="1">ShaReCon</option>
+                <option value="1" selected>ShaReCon</option>
                 <option value="2">GUN</option>
             </select>
-            <span id="errorClient"></span>
+            <span id="errorClient" class="errors-text"></span>
 
-            <label for="employee">Employee: <span class="symbol-required">*</span></label>
-            <select name="employee" id="employee">
+            <label for="employeeName">Employee: <span class="symbol-required">*</span></label>
+            <select name="employeeName" id="employeeName">
                 <option>-- Choose employee --</option>
                 <option value="1">Brendan Eich</option>
                 <option value="2">Linus Torvalds</option>
-                <option value="3">Richard Hendricks</option>
+                <option value="3" selected>Richard Hendricks</option>
             </select>
-            <span id="errorEmployee"></span>
+            <span id="errorEmployee" class="errors-text"></span>
 
-            <label for="start">Start: <span class="symbol-required">*</span></label>
-            <input type="date" name="start" id="start" value="2026-06-20" required>
-            <span id="errorStart"></span>
+            <label for="startDate">Start: <span class="symbol-required">*</span></label>
+            <input type="date" name="startDate" id="startDate" value="2026-06-20" required>
+            <span id="errorStartDate" class="errors-text"></span>
             
             <label for="deadline">Deadline: <span class="symbol-required">*</span></label>
             <input type="date" name="deadline" id="deadline" value="2026-10-19" required>
-            <span id="errorDeadline"></span>
+            <span id="errorDeadline" class="errors-text"></span>
             
             <label for="budget">Budget: <span class="symbol-required">*</span></label>
             <input type="number" name="budget" id="budget" value="2200" min="0" max="1000000000" step="10" required>
-            <span id="errorBudget"></span>
+            <span id="errorBudget" class="errors-text"></span>
 
             <div class="form-buttons">
                 <input type="submit" value="Add" class="form-button-submit">
                 <a href="list.html" class="form-button-cancel">Cancel</a>
-                <p id="errorsSummary"></p>
+                <p id="errorsSummary" class="errors-text"></p>
             </div>
         </form>
     </main>
