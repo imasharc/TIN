@@ -21,7 +21,7 @@ const Client = sequelize.define("Client", {
     allowNull: false,
     unique: true,
   },
-  commpany: {
+  company: {
     type: Sequelize.STRING(50),
     allowNull: true,
   },
