@@ -13,63 +13,27 @@
                 </tr>
             </thead>
             <tbody>
+                <% for (let emp of emps) { %>
                 <tr>
-                    <td>Brendan</td>
-                    <td>Eich</td>
-                    <td>brendan.eich@sharecon.com</td>
-                    <td>Senior Javascript Developer</td>
+                    <td><%= emp.firstName %></td>
+                    <td><%= emp.lastName %></td>
+                    <td><%= emp.email %></td>
+                    <td><%= emp.role %></td>
                     <td>
                         <ul class="list-actions">
                             <li>
-                                <a href="/employees/details/:empId" class="list-actions-button-details">Details</a>
+                                <a href="/employees/details/<%= emp.empId %>" class="list-actions-button-details">Details</a>
                             </li>
                             <li>
-                                <a href="/employees/edit/:empId" class="list-actions-button-edit">Edit</a>
+                                <a href="/employees/edit/<%= emp.empId %>" class="list-actions-button-edit">Edit</a>
                             </li>
                             <li>
-                                <a href="" class="list-actions-button-delete">Delete</a>
+                                <a href="/employees/delete/<%= emp.empId %>" class="list-actions-button-delete">Delete</a>
                             </li>
                         </ul>
                     </td>
                 </tr>
-                <tr>
-                    <td>Linus</td>
-                    <td>Torvalds</td>
-                    <td>linus.torvalds@sharecon.com</td>
-                    <td>Senior System Engineer</td>
-                    <td>
-                        <ul class="list-actions">
-                            <li>
-                                <a href="/employees/details/:empId" class="list-actions-button-details">Details</a>
-                            </li>
-                            <li>
-                                <a href="/employees/edit/:empId" class="list-actions-button-edit">Edit</a>
-                            </li>
-                            <li>
-                                <a href="" class="list-actions-button-delete">Delete</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Richard</td>
-                    <td>Hendricks</td>
-                    <td>richard.hendricks@sharecon.com</td>
-                    <td>Senior Network Engineer</td>
-                    <td>
-                        <ul class="list-actions">
-                            <li>
-                                <a href="/employees/details/:empId" class="list-actions-button-details">Details</a>
-                            </li>
-                            <li>
-                                <a href="/employees/edit/:empId" class="list-actions-button-edit">Edit</a>
-                            </li>
-                            <li>
-                                <a href="" class="list-actions-button-delete">Delete</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
+                <% } %>
             </tbody>
         </table>
 
