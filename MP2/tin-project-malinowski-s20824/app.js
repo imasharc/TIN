@@ -7,6 +7,14 @@ var logger = require("morgan");
 var indexRouter = require("./routes/index");
 
 var app = express();
+
+// connecting the new function call
+const sequlizeInit = require("./config/sequelize/init");
+sequlizeInit().catch((err) => {
+  console.log(err);
+});
+
+// routes for model views
 const employeeRouter = require("./routes/employeeRoute");
 const projectRouter = require("./routes/projectRoute");
 const clientRouter = require("./routes/clientRoute");
