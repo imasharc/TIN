@@ -8,7 +8,7 @@ var indexRouter = require("./routes/index");
 
 var app = express();
 
-// connecting the new function call
+// Initializing sequlizer
 const sequlizeInit = require("./config/sequelize/init");
 sequlizeInit().catch((err) => {
   console.log(err);
@@ -18,6 +18,9 @@ sequlizeInit().catch((err) => {
 const employeeRouter = require("./routes/employeeRoute");
 const projectRouter = require("./routes/projectRoute");
 const clientRouter = require("./routes/clientRoute");
+
+// routes for api
+const empApiRouter = require("./routes/api/EmployeeApiRoute");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -33,6 +36,8 @@ app.use("/", indexRouter);
 app.use("/employees", employeeRouter);
 app.use("/projects", projectRouter);
 app.use("/clients", clientRouter);
+
+app.use("/api/employees", empApiRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

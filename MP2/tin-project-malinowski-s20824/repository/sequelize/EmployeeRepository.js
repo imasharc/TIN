@@ -15,7 +15,7 @@ exports.getEmployeeById = (empId) => {
         include: [
           {
             model: Client,
-            as: "clients",
+            as: "client",
           },
         ],
       },
@@ -32,16 +32,16 @@ exports.createEmployee = (newEmpData) => {
   });
 };
 
-exports.updateEmployee = (empId, empData) => {
+exports.updateEmployee = (emp_id, empData) => {
   const firstName = empData.firstName;
   const lastName = empData.lastName;
   const email = empData.email;
   const role = empData.role;
-  return Employee.update(empData, { where: { empId: empId } });
+  return Employee.update(empData, { where: { empId: emp_id } });
 };
 
-exports.deleteEmployee = (empId) => {
+exports.deleteEmployee = (emp_id) => {
   return Employee.destroy({
-    where: { empId: empId },
+    where: { empId: emp_id },
   });
 };
