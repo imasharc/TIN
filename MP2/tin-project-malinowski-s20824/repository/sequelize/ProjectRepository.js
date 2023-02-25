@@ -1,4 +1,4 @@
-﻿const Sequelize = require("sequlize");
+﻿const Sequelize = require("sequelize");
 
 const Employee = require("../../model/sequelize/Employee");
 const Project = require("../../model/sequelize/Project");

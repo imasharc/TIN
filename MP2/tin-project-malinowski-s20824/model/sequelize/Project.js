@@ -24,11 +24,11 @@ const Project = sequelize.define("Project", {
     type: Sequelize.DECIMAL(9, 2),
     allowNull: false,
   },
-  idOfEmp: {
+  idOfClient: {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
-  idOfClient: {
+  idOfEmp: {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
