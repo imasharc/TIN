@@ -11,7 +11,7 @@ router.get("/edit/:empId", employeeController.showEditEmployeeForm);
 
 // business logic actions
 router.post("/add", employeeController.addEmployee);
-router.post("/add", employeeController.updateEmployee);
+router.post("/edit", employeeController.updateEmployee);
 router.get("/delete/:empId", employeeController.deleteEmployee);
 
 module.exports = router;

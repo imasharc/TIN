@@ -41,7 +41,7 @@ exports.showEditEmployeeForm = (req, res, next) => {
       pageTitle: "Edit employee",
       formMode: "edit",
       btnLabel: "Edit employee",
-      formAction: "/employee/edit",
+      formAction: "/employees/edit",
       navLocation: "emp",
     });
   });
