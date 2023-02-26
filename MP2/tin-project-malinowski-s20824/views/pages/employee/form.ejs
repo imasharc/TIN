@@ -33,7 +33,17 @@
                 </div>
             <% } %>
             
+            <div class="form-buttons">
+                <p id="errorsSummary" class="errors-text"></p>
+                <% if (formMode != 'showDetails') { %>
+                    <input class="form-button-submit" type="submit" value="<%=btnLabel%>"/>
+                    <a class="form-button-cancel" href="/employees">Cancel</a>
+                <% } else { %>
+                    <a class="form-button-cancel" href="/employees">Return</a>
+                <% } %>
+            </div>
         </form>
+        
         <% if (formMode == 'showDetails' || formMode == 'edit') { %>
 
         <h2>Project details</h2>
@@ -60,19 +70,9 @@
                 <% } %>
                 </tbody>
             </table>
-            
+
         <% } %>
 
-        <div>
-            <p id="errorsSummary" class="errors-text"></p>
-            <% if (formMode != 'showDetails') { %>
-                <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
-                <a class="form-button-cancel" href="/employees">Cancel</a>
-            <% } else { %>
-                <a class="form-button-cancel" href="/employees">Return</a>
-            <% } %>
-        </div>
-    
     </main>
 </body>
 
