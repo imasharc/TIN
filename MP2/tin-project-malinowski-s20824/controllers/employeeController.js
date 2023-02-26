@@ -23,7 +23,7 @@ exports.showAddEmployeeForm = (req, res, next) => {
 exports.showEmployeeDetails = (req, res, next) => {
   const empId = req.params.empId;
   EmployeeRepository.getEmployeeById(empId).then((emp) => {
-    res.render("pages/employee/details", {
+    res.render("pages/employee/form", {
       emp: emp,
       pageTitle: "showDetails",
       formMode: "showDetails",
