@@ -6,94 +6,47 @@
 
         <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
             <input type="hidden" name="projectId" value="<%= project.projectId %>">
-            <!-- <input type="hidden" name="projectId" value="1"> -->
 
             <label for="projectName">Name: <span class="symbol-required">*</span></label>
-            <input type="text" name="projectName" id="projectName" value="<%= project.projectName %>"
-            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <input type="text" name="projectName" id="projectName" required>
             <span id="errorProjectName" class="errors-text"></span>
 
             <label for="clientName">Client: <span class="symbol-required">*</span></label>
-            <select name="clientName" id="clientName" required <%= (formMode == 'showDetails') ? 'disabled' : ''%> >
-                <option value="" selected>-- Choose client --</option>
-                <% for (let i=0; i<allClients.length; i++) { let client = allClients[i]; %>
-                    <option value="<%= client.clientId %>" label="<%= client.firstName + ' ' + client.lastName %>">
-                        <%= (project.projectId && client.clientId.toString() == project.idOfClient.toString()) ? 'selected' : ''%>></option>
-                <% } %>
+            <select name="clientName" id="clientName">
+                <option>-- Choose client --</option>
+                <option value="1">ShaReCon</option>
+                <option value="2">GUN</option>
             </select>
             <span id="errorClient" class="errors-text"></span>
 
             <label for="employeeName">Employee: <span class="symbol-required">*</span></label>
-            <select name="employeeName" id="employeeName" required <%= (formMode == 'showDetails') ? 'disabled' : ''%> >
-                <option value="" selected>-- Choose employee --</option>
-                <% for (let i=0; i<allEmps.length; i++) { let emp = allEmps[i]; %>
-                    <option value="<%= emp.empId %>" label="<%= emp.firstName + ' ' + emp.lastName %>"
-                        <%= (project.projectId && emp.empId.toString() == project.idOfEmp.toString()) ? 'selected' : ''%>></option>
-                <% } %>
+            <select name="employeeName" id="employeeName">
+                <option>-- Choose employee --</option>
+                <option value="1">Brendan Eich</option>
+                <option value="2">Linus Torvalds</option>
+                <option value="3">Richard Hendricks</option>
             </select>
             <span id="errorEmployee" class="errors-text"></span>
 
             <label for="startDate">Start: <span class="symbol-required">*</span></label>
-            <input type="date" name="startDate" id="startDate" value="<%= project.startDate %>"
-            <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
+            <input type="date" name="startDate" id="startDate" required>
             <span id="errorStartDate" class="errors-text"></span>
             
             <label for="deadline">Deadline: <span class="symbol-required">*</span></label>
-            <input type="date" name="deadline" id="deadline" value="<%= project.deadline %>"
-            <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
+            <input type="date" name="deadline" id="deadline" required>
             <span id="errorDeadline" class="errors-text"></span>
             
             <label for="budget">Budget: <span class="symbol-required">*</span></label>
-            <input type="number" name="budget" id="budget" min="0" max="1000000000" step="10" value="<%= project.budget %>"
-            <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
+            <input type="number" name="budget" id="budget" min="0" max="1000000000" step="10" required>
             <span id="errorBudget" class="errors-text"></span>
 
-            <% if (formMode == 'showDetails') { %>
-                <div>
-                    <a class="list-actions-button-edit" href="/projects/edit/<%= project.projectId %>">Edit</a>
-                </div>
-            <% } %>
+            <span id="errorsSummary" class="errors-text"></span>
 
             <div class="form-buttons">
-                <p id="errorsSummary" class="errors-text"></p>
-                <% if (formMode != 'showDetails') { %>
-                    <input class="form-button-submit" type="submit" value="<%=btnLabel%>"/>
-                    <a class="form-button-cancel" href="/projects">Cancel</a>
-                <% } else { %>
-                    <a class="form-button-cancel" href="/projects">Return</a>
-                <% } %>
+                <input type="submit" value="Add" class="form-button-submit">
+                <a href="/projects" class="form-button-cancel">Cancel</a>
             </div>
         </form>
-
-        <!-- <% if (formMode == 'showDetails' || formMode == 'edit') { %>
-
-            <h2>Project details</h2>
-    
-                <table class="table-list">
-                    <thead>
-                        <tr>
-                            <th>Client</th>
-                            <th>Project</th>
-                            <th>Start</th>
-                            <th>Deadline</th>
-                            <th>Budget</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <% for (let e of emp.projects) { %>
-                        <tr>
-                            <td><a href="/clients/details/<%= e.client.clientId %>"><%= e.client.company %></a></td>
-                            <td><%= e.projectName %></td>
-                            <td><%= e.startDate.toISOString().split('T')[0] %></td>
-                            <td><%= e.deadline.toISOString().split('T')[0] %></td>
-                            <td><%= e.budget %></td>
-                        </tr>
-                    <% } %>
-                    </tbody>
-                </table>
-    
-            <% } %> -->
-
     </main>
 </body>
 

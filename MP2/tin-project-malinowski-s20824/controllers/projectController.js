@@ -3,7 +3,13 @@ const ClientRepository = require("../repository/sequelize/ClientRepository");
 const ProjectRepository = require("../repository/sequelize/ProjectRepository");
 
 exports.showProjectList = (req, res, next) => {
-  res.render("pages/project_/list", { navLocation: "projects" });
+  ProjectRepository.getProjects().then((projects) => {
+    res.render("pages/project_/list", {
+      projects: projects,
+      pageTitle: "Project list",
+      navLocation: "projects",
+    });
+  });
 };
 
 exports.showAddProjectForm = (req, res, next) => {

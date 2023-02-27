@@ -15,17 +15,18 @@
                 </tr>
             </thead>
             <tbody>
+                <% for (let project of projects) { %>
                 <tr>
-                    <td>Node storage optimization</td>
-                    <td>2026-06-20</td>
-                    <td>2026-10-19</td>
-                    <td>$2 200.00</td>
-                    <td>GUN</td>
-                    <td>Richard Hendricks</td>
+                    <td><%= project.projectName %></td>
+                    <td><%= project.startDate %></td>
+                    <td><%= project.deadline %></td>
+                    <td><%= project.budget %></td>
+                    <td><%= project.client.company %></td>
+                    <td><%= project.employee.firstName + ' ' + project.employee.lastName %></td>
                     <td>
                         <ul class="list-actions">
                             <li>
-                                <a href="/projects/details/:projectId" class="list-actions-button-details">Details</a>
+                                <a href="/projects/details/<%= project.projectId %>" class="list-actions-button-details">Details</a>
                             </li>
                             <li>
                                 <a href="/projects/edit/:projectId" class="list-actions-button-edit">Edit</a>
@@ -36,27 +37,7 @@
                         </ul>
                     </td>
                 </tr>
-                <tr>
-                    <td>File sharing infrastructure</td>
-                    <td>2023-03-10</td>
-                    <td>2023-06-05</td>
-                    <td>$13 500.00</td>
-                    <td>ShaReCon</td>
-                    <td>Richard Hendricks</td>
-                    <td>
-                        <ul class="list-actions">
-                            <li>
-                                <a href="/projects/details/:projectId" class="list-actions-button-details">Details</a>
-                            </li>
-                            <li>
-                                <a href="/projects/edit/:projectId" class="list-actions-button-edit">Edit</a>
-                            </li>
-                            <li>
-                                <a href="" class="list-actions-button-delete">Delete</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
+                <% } %>
             </tbody>
         </table>
 
