@@ -95,3 +95,20 @@ exports.addProject = (req, res, next) => {
     res.redirect("/projects");
   });
 };
+
+exports.updateProject = (req, res, next) => {
+  const projectId = req.body.projectId;
+  const projectData = { ...req.body };
+
+  ProjectRepository.updateProject(projectId, projectData).then((result) => {
+    res.redirect("/projects");
+  });
+};
+
+exports.deleteProject = (req, res, next) => {
+  const projectId = req.params.projectId;
+
+  ProjectRepository.deleteProject(projectId).then(() => {
+    res.redirect("/projects");
+  });
+};

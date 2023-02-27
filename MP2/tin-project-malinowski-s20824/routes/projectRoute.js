@@ -11,7 +11,7 @@ router.get("/edit/:projectId", projectController.showEditProjectForm);
 
 // business logic actions
 router.post("/add", projectController.addProject);
-// router.post("/edit", projectController.updateProject);
-// router.get("/delete/:projectId", projectController.deleteProject);
+router.post("/edit", projectController.updateProject);
+router.get("/delete/:projectId", projectController.deleteProject);
 
 module.exports = router;
