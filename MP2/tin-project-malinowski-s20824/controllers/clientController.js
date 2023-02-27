@@ -51,7 +51,7 @@ exports.showEditClientForm = (req, res, next) => {
 exports.addClient = (req, res, next) => {
   const clientData = { ...req.body };
 
-  ClientRepository.createEmployee(clientData).then((result) => {
+  ClientRepository.createClient(clientData).then((result) => {
     res.redirect("/clients");
   });
 };
