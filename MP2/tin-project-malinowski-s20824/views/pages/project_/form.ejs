@@ -8,43 +8,61 @@
             <input type="hidden" name="projectId" value="<%= project.projectId %>">
 
             <label for="projectName">Name: <span class="symbol-required">*</span></label>
-            <input type="text" name="projectName" id="projectName" required>
+            <input type="text" name="projectName" id="projectName" value="<%= project.projectName %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
             <span id="errorProjectName" class="errors-text"></span>
 
             <label for="clientName">Client: <span class="symbol-required">*</span></label>
-            <select name="clientName" id="clientName">
-                <option>-- Choose client --</option>
-                <option value="1">ShaReCon</option>
-                <option value="2">GUN</option>
+            <select name="clientName" id="clientName" required <%= (formMode == 'showDetails') ? 'disabled' : ''%> >
+                <option value="" selected>-- Choose client --</option>
+                <% for (let i=0; i<allClients.length; i++) { let client = allClients[i]; %>
+                    <option value="<%= client.clientId %>" label="<%= client.company %>"
+                        <%= (project.projectId && client.clientId.toString() == project.idOfClient.toString()) ? 'selected' : ''%>></option>
+                <% } %>
             </select>
             <span id="errorClient" class="errors-text"></span>
 
             <label for="employeeName">Employee: <span class="symbol-required">*</span></label>
-            <select name="employeeName" id="employeeName">
-                <option>-- Choose employee --</option>
-                <option value="1">Brendan Eich</option>
-                <option value="2">Linus Torvalds</option>
-                <option value="3">Richard Hendricks</option>
+            <select name="employeeName" id="employeeName" required <%= (formMode == 'showDetails') ? 'disabled' : ''%> >
+                <option value="" selected>-- Choose employee --</option>
+                <% for (let i=0; i<allEmps.length; i++) { let emp = allEmps[i]; %>
+                    <option value="<%= emp.empId %>" label="<%= emp.firstName + ' ' + emp.lastName %>"
+                        <%= (project.projectId && emp.empId.toString() == project.idOfEmp.toString()) ? 'selected' : ''%>></option>
+                <% } %>
             </select>
             <span id="errorEmployee" class="errors-text"></span>
 
             <label for="startDate">Start: <span class="symbol-required">*</span></label>
-            <input type="date" name="startDate" id="startDate" required>
+            <input type="date" name="startDate" id="startDate" value="<%= (formMode=='createNew') ? '': project.startDate.toISOString().split('T')[0] %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
             <span id="errorStartDate" class="errors-text"></span>
             
             <label for="deadline">Deadline: <span class="symbol-required">*</span></label>
-            <input type="date" name="deadline" id="deadline" required>
+            <input type="date" name="deadline" id="deadline" value="<%= (formMode=='createNew') ? '': project.deadline.toISOString().split('T')[0] %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
             <span id="errorDeadline" class="errors-text"></span>
             
             <label for="budget">Budget: <span class="symbol-required">*</span></label>
-            <input type="number" name="budget" id="budget" min="0" max="1000000000" step="10" required>
+            <input type="number" name="budget" id="budget" min="0" max="1000000000" step="10" value="<%= project.budget %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
             <span id="errorBudget" class="errors-text"></span>
 
-            <span id="errorsSummary" class="errors-text"></span>
+            <!-- BUTTONS -->
+            <% if (formMode == 'showDetails') { %>
+                <div>
+                    <a class="list-actions-button-edit" href="/projects/edit/<%= project.projectId %>">Edit</a>
+                </div>
+            <% } %>
+            
+            <div>
+                <p id="errorsSummary" class="errors-text"></p>
 
-            <div class="form-buttons">
-                <input type="submit" value="Add" class="form-button-submit">
-                <a href="/projects" class="form-button-cancel">Cancel</a>
+                <% if (formMode != 'showDetails') { %>
+                    <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+                    <a class="form-button-cancel" href="/projects">Cancel</a>
+                <% } else { %>
+                    <a class="form-button-cancel" href="/projects">Back</a>
+                <% } %>
             </div>
         </form>
     </main>

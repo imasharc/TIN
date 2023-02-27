@@ -18,8 +18,8 @@
                 <% for (let project of projects) { %>
                 <tr>
                     <td><%= project.projectName %></td>
-                    <td><%= project.startDate %></td>
-                    <td><%= project.deadline %></td>
+                    <td><%= project.startDate.toISOString().split('T')[0] %></td>
+                    <td><%= project.deadline.toISOString().split('T')[0] %></td>
                     <td><%= project.budget %></td>
                     <td><%= project.client.company %></td>
                     <td><%= project.employee.firstName + ' ' + project.employee.lastName %></td>
@@ -29,7 +29,7 @@
                                 <a href="/projects/details/<%= project.projectId %>" class="list-actions-button-details">Details</a>
                             </li>
                             <li>
-                                <a href="/projects/edit/:projectId" class="list-actions-button-edit">Edit</a>
+                                <a href="/projects/edit/<%= project.projectId %>" class="list-actions-button-edit">Edit</a>
                             </li>
                             <li>
                                 <a href="" class="list-actions-button-delete">Delete</a>

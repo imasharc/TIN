@@ -62,5 +62,28 @@ exports.showProjectDetails = (req, res, next) => {
 };
 
 exports.showEditProjectForm = (req, res, next) => {
-  res.render("pages/project_/form-edit", { navLocation: "projects" });
+  const projectId = req.params.projectId;
+  let allEmps, allClients;
+
+  EmployeeRepository.getEmployees()
+    .then((emps) => {
+      allEmps = emps;
+      return ClientRepository.getClients();
+    })
+    .then((clients) => {
+      allClients = clients;
+      return ProjectRepository.getProjectById(projectId);
+    })
+    .then((project) => {
+      res.render("pages/project_/form", {
+        project: project,
+        pageTitle: "Edit project",
+        formMode: "edit",
+        btnLabel: "Edit project",
+        formAction: "/projects/edit",
+        navLocation: "projects",
+        allEmps: allEmps,
+        allClients: allClients,
+      });
+    });
 };
