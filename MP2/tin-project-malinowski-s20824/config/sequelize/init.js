@@ -86,6 +86,10 @@ module.exports = () => {
         return clients;
       }
     })
+    .then((clients) => {
+      allClients = clients;
+      return Project.findAll();
+    })
     .then((projects) => {
       if (!projects || projects.length == 0) {
         return Project.bulkCreate([
@@ -94,33 +98,17 @@ module.exports = () => {
             startDate: "2026-06-20",
             deadline: "2026-10-19",
             budget: 2200,
-            idOfClient: allClients[1],
-            idOfEmp: allEmps[3],
+            idOfClient: 1,
+            idOfEmp: allEmps[2].empId,
           },
           {
             projectName: "File sharing infrastructure",
             startDate: "2023-03-10",
             deadline: "2023-06-05",
             budget: 13500,
-            idOfClient: allClients[2],
-            idOfEmp: allEmps[3],
+            idOfClient: 2,
+            idOfEmp: allEmps[2].empId,
           },
-          //   {
-          //     idOfClient: allClients[1],
-          //     idOfEmp: allEmps[3],
-          //     projectName: "Node storage optimization",
-          //     startDate: "2026-06-20",
-          //     deadline: "2026-10-19",
-          //     budget: 2200,
-          //   },
-          //   {
-          //     idOfClient: allClients[2],
-          //     idOfEmp: allEmps[3],
-          //     projectName: "File sharing infrastructure",
-          //     startDate: "2023-03-10",
-          //     deadline: "2023-06-05",
-          //     budget: 13500,
-          //   },
         ]);
       } else {
         return projects;
