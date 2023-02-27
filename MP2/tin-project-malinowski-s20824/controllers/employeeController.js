@@ -49,7 +49,6 @@ exports.showEditEmployeeForm = (req, res, next) => {
 
 exports.addEmployee = (req, res, next) => {
   const empData = { ...req.body };
-  console.log(req.body.firstName);
 
   EmployeeRepository.createEmployee(empData).then((result) => {
     res.redirect("/employees");
@@ -59,7 +58,7 @@ exports.addEmployee = (req, res, next) => {
 exports.updateEmployee = (req, res, next) => {
   const empId = req.body.empId;
   const empData = { ...req.body };
-  // console.log(req.body.firstName);
+
   EmployeeRepository.updateEmployee(empId, empData).then((result) => {
     res.redirect("/employees");
   });
@@ -67,6 +66,7 @@ exports.updateEmployee = (req, res, next) => {
 
 exports.deleteEmployee = (req, res, next) => {
   const empId = req.params.empId;
+
   EmployeeRepository.deleteEmployee(empId).then(() => {
     res.redirect("/employees");
   });

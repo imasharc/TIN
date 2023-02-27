@@ -42,8 +42,8 @@ exports.createProject = (data) => {
     startDate: data.startDate,
     deadline: data.deadline,
     budget: data.budget,
-    idOfClient: data.idOfClient,
-    idOfEmp: data.idOfEmp,
+    idOfClient: data.clientName,
+    idOfEmp: data.employeeName,
   });
 };
 

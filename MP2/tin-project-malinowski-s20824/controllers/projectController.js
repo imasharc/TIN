@@ -27,7 +27,7 @@ exports.showAddProjectForm = (req, res, next) => {
         pageTitle: "New project",
         formMode: "createNew",
         btnLabel: "Add project",
-        formAction: "/project/add",
+        formAction: "/projects/add",
         navLocation: "projects",
         allEmps: allEmps,
         allClients: allClients,
@@ -86,4 +86,12 @@ exports.showEditProjectForm = (req, res, next) => {
         allClients: allClients,
       });
     });
+};
+
+exports.addProject = (req, res, next) => {
+  const projectData = { ...req.body };
+
+  ProjectRepository.createProject(projectData).then((result) => {
+    res.redirect("/projects");
+  });
 };
