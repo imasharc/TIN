@@ -1,32 +1,78 @@
 ﻿<%- include('../../fragment/header.ejs') %>
 
     <main>
-        <h2>Client form</h2>
+        <script type="application/javascript" src="/js/validationClientForm.js"></script>
+        <h2><%= pageTitle %></h2>
 
-        <form class="form" novalidate onsubmit="return validateForm();">
+        <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+            <input type="hidden" name="clientId" value="<%= client_.clientId %>">
+            
             <label for="firstName">Name: <span class="symbol-required">*</span></label>
-            <input type="text" name="firstName" id="firstName" required>
+            <input type="text" name="firstName" id="firstName" value="<%= client_.firstName %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
             <span id="errorFirstName" class="errors-text"></span>
 
             <label for="lastName">Surname: <span class="symbol-required">*</span></label>
-            <input type="text" name="lastName" id="lastName" required>
+            <input type="text" name="lastName" id="lastName" value="<%= client_.lastName %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
             <span id="errorLastName" class="errors-text"></span>
             
             <label for="email">E-mail: <span class="symbol-required">*</span></label>
-            <input type="text" name="email" id="email" required>
+            <input type="text" name="email" id="email" value="<%= client_.email %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
             <span id="errorEmail" class="errors-text"></span>
             
             <label for="company">Company: </label>
-            <input type="text" name="company" id="company">
+            <input type="text" name="company" id="company" value="<%= client_.company %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
             <span id="errorRole"></span>
 
-            <span id="errorsSummary" class="errors-text"></span>
-
+            <% if (formMode == 'showDetails') { %>
+                <div>
+                    <a class="list-actions-button-edit" href="/clients/edit/<%= client_.clientId %>">Edit</a>
+                </div>
+            <% } %>
+            
             <div class="form-buttons">
-                <input type="submit" value="Add" class="form-button-submit">
-                <a href="/clients" class="form-button-cancel">Cancel</a>
+                <p id="errorsSummary" class="errors-text"></p>
+                <% if (formMode != 'showDetails') { %>
+                    <input class="form-button-submit" type="submit" value="<%=btnLabel%>"/>
+                    <a class="form-button-cancel" href="/clients">Cancel</a>
+                <% } else { %>
+                    <a class="form-button-cancel" href="/clients">Return</a>
+                <% } %>
             </div>
         </form>
+
+        <% if (formMode == 'showDetails' || formMode == 'edit') { %>
+
+            <h2>Project details</h2>
+    
+                <table class="table-list">
+                    <thead>
+                        <tr>
+                            <th>Employee</th>
+                            <th>Project</th>
+                            <th>Start</th>
+                            <th>Deadline</th>
+                            <th>Budget</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <% for (let c of client_.projects) { %>
+                        <tr>
+                            <td><a href="/employees/details/<%= c.employee.empId %>"><%= c.employee.firstName + ' ' + c.employee.lastName %></a></td>
+                            <td><%= c.projectName %></td>
+                            <td><%= c.startDate.toISOString().split('T')[0] %></td>
+                            <td><%= c.deadline.toISOString().split('T')[0] %></td>
+                            <td><%= c.budget %></td>
+                        </tr>
+                    <% } %>
+                    </tbody>
+                </table>
+    
+            <% } %>
+
     </main>
 </body>
 

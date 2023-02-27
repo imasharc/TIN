@@ -13,44 +13,27 @@
                 </tr>
             </thead>
             <tbody>
+                <% for (let client of clients) { %>
                 <tr>
-                    <td>Mark</td>
-                    <td>Nadal</td>
-                    <td>mark@gun.eco</td>
-                    <td>GUN</td>
+                    <td><%= client.firstName %></td>
+                    <td><%= client.lastName %></td>
+                    <td><%= client.email %></td>
+                    <td><%= client.company %></td>
                     <td>
                         <ul class="list-actions">
                             <li>
-                                <a href="/clients/details/:clientId" class="list-actions-button-details">Details</a>
+                                <a href="/clients/details/<%= client.clientId %>" class="list-actions-button-details">Details</a>
                             </li>
                             <li>
-                                <a href="/clients/edit/:clientId" class="list-actions-button-edit">Edit</a>
+                                <a href="/clients/edit/<%= client.clientId %>" class="list-actions-button-edit">Edit</a>
                             </li>
                             <li>
-                                <a href="" class="list-actions-button-delete">Delete</a>
+                                <a href="/clients/delete/<%= client.clientId %>" class="list-actions-button-delete">Delete</a>
                             </li>
                         </ul>
                     </td>
                 </tr>
-                <tr>
-                    <td>Antoni</td>
-                    <td>Malinowski</td>
-                    <td>antoni.malinowski@sharecon.com</td>
-                    <td>ShaReCon</td>
-                    <td>
-                        <ul class="list-actions">
-                            <li>
-                                <a href="/clients/details/:clientId" class="list-actions-button-details">Details</a>
-                            </li>
-                            <li>
-                                <a href="/clients/edit/:clientId" class="list-actions-button-edit">Edit</a>
-                            </li>
-                            <li>
-                                <a href="" class="list-actions-button-delete">Delete</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
+                <% } %>
             </tbody>
         </table>
 

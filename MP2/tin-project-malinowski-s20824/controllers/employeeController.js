@@ -25,7 +25,7 @@ exports.showEmployeeDetails = (req, res, next) => {
   EmployeeRepository.getEmployeeById(empId).then((emp) => {
     res.render("pages/employee/form", {
       emp: emp,
-      pageTitle: "showDetails",
+      pageTitle: "show Details",
       formMode: "showDetails",
       formAction: "",
       navLocation: "emp",
