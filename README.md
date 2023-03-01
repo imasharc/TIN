@@ -1,4 +1,5 @@
 # TIN
+
 Mini-projects done for the "Internet Technologies" course at Polish-Japanese Academy of Information Technology
 
 MP0
@@ -9,3 +10,5 @@ The purpose of this mini-project is to define the scope of requirements of the p
 MP1
 The purpose of this mini project is to create a prototype application to plan and present the user interface. The result will be static pages showing the complete user interface using CSS style sheets.
 
+TIN-internet-based
+This sub-directory documents the implementation of the final project done for the internet based TIN classes (PJAIT course). The final project consists of several mini-projects which are highly inspired by my work published at https://github.com/antonimalinowski/TIN
