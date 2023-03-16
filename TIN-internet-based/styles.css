@@ -1,5 +1,5 @@
 ﻿ html {
-    background-color: #6890c3;
+    background-color: #f4f3ee;
     font-family: sans-serif;
 }
 
@@ -10,7 +10,7 @@ body {
 header,
 main,
 footer {
-    background-color: #a3b6cd;
+    background-color: #cadfec;
 }
 
 header,
@@ -22,8 +22,8 @@ nav {
 
 header,
 footer {
-    background-color: #577bb4;
-    color: #eaecf1;
+    background-color: #bbe3fa;
+    color: #37110e;
     padding: 1rem;
 }
 
@@ -45,14 +45,14 @@ nav ul {
 
 nav ul li a {
     display: inline-block;
-    color: #40502c;
+    color: #37110e;
     padding: 1rem 2rem;
     text-decoration: none;
 }
 
 nav ul li a:hover {
-    background-color: #4b7cb2;
-    color: #ecf0f1;
+    background-color: #bddef3;
+    color: #37110e;
 }
 
 nav ul li a.active {
