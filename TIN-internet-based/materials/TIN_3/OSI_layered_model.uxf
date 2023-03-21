@@ -1,0 +1,44 @@
+<diagram program="umletino" version="15.1"><zoom_level>3</zoom_level><element><id>UMLClass</id><coordinates><x>117</x><y>156</y><w>144</w><h>33</h></coordinates><panel_attributes>bg=blue
+OSI (~1977)
+--
+- Open Source Interconnection
+- allows various communication systems to communicate using standard protocols</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>141</x><y>537</y><w>96</w><h>27</h></coordinates><panel_attributes>bg=yellow
+Physical layer
+--
+- represented by physical infrastructure elements
+- provides the transfer of raw data bits
+  over the medium</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>141</x><y>486</y><w>96</w><h>27</h></coordinates><panel_attributes>bg=#bf9000
+Links layer
+--
+- provides the transfer of interpretable
+  sets of bits between two network nodes</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>141</x><y>420</y><w>96</w><h>42</h></coordinates><panel_attributes>bg=#c0d1c2
+Network layer
+--
+- creates an abstraction layer that allows the use of
+  an internetwork that may consist
+  of different technologies and methods
+  of communication of physical networks
+- converts logical addresses to hardware
+- divides logical packets into
+  (used within layer 2) data frames</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>141</x><y>372</y><w>96</w><h>24</h></coordinates><panel_attributes>bg=#737d74
+Transport layer
+--
+- provides data division
+- delivery guarantee
+- speed control</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>141</x><y>324</y><w>96</w><h>24</h></coordinates><panel_attributes>bg=#6fa8dc
+Session layer
+--
+- establishing
+and closing connections between cooperating nodes</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>141</x><y>276</y><w>96</w><h>24</h></coordinates><panel_attributes>bg=#6fdcda
+Data presentation layer
+--
+- format data exchange
+- possible data compression or encryption</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>141</x><y>228</y><w>96</w><h>24</h></coordinates><panel_attributes>bg=#17e364
+Applications layer
+--
+- services provided for specific applications.</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>186</x><y>510</y><w>9</w><h>33</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>186</x><y>459</y><w>9</w><h>33</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>186</x><y>393</y><w>9</w><h>33</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>186</x><y>345</y><w>9</w><h>33</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>186</x><y>297</y><w>9</w><h>33</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>186</x><y>249</y><w>9</w><h>33</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>186</x><y>186</y><w>9</w><h>48</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;140</additional_attributes></element><element><id>Relation</id><coordinates><x>249</x><y>369</y><w>9</w><h>201</h></coordinates><panel_attributes>lt=&lt;&lt;.&gt;&gt;</panel_attributes><additional_attributes>10;10;10;650</additional_attributes></element><element><id>Text</id><coordinates><x>258</x><y>465</y><w>36</w><h>21</h></coordinates><panel_attributes>TRANSPORT LAYERS</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>249</x><y>225</y><w>9</w><h>129</h></coordinates><panel_attributes>lt=&lt;&lt;.&gt;&gt;</panel_attributes><additional_attributes>10;10;10;410</additional_attributes></element><element><id>Text</id><coordinates><x>261</x><y>288</y><w>36</w><h>21</h></coordinates><panel_attributes>APPLICATION LAYERS</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>33</x><y>429</y><w>81</w><h>30</h></coordinates><panel_attributes>bg=#c0d1c2
+**
+unifies communication and
+isolates higher-level solutions
+from the heterogeneity of hardware solutions
+in the physical networks it integrates</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>111</x><y>441</y><w>36</w><h>9</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;100;10</additional_attributes></element></diagram>
