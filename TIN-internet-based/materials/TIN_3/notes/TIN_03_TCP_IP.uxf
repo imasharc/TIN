@@ -1,0 +1,120 @@
+<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><help_text>TCP/IP Model</help_text><element><id>UMLClass</id><coordinates><x>846</x><y>1152</y><w>288</w><h>126</h></coordinates><panel_attributes>bg=yellow
+style=wordwrap
+Connection layer / Network Access
+--
+- device drivers and network interface card e.g. Ethernet
+- implements ARP and RARP,
+  ensuring mapping in the local network
+  between logical addresses (like IP number)
+  and physical addresses (like MAC)
+- also known as the network interface layer
+- covers all the details of physical communication</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1467</x><y>1170</y><w>207</w><h>72</h></coordinates><panel_attributes>bg=yellow
+style=wordwrap
+LLC, 802.2
+--
+Logical Link Control
+- provides services to the upper layers</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1485</x><y>1287</y><w>153</w><h>45</h></coordinates><panel_attributes>bg=yellow
+style=wordwrap
+MAC addressing
+--
+Media Access Control
+- defines how devices access the medium</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>846</x><y>855</y><w>288</w><h>207</h></coordinates><panel_attributes>bg=orange
+style=wordwrap
+Network / Internet layer
+--
+- handles packet traffic over the network
+- among other things, packet routing takes place here
+- it includes the Internet Protocol (IP),
+  as well as e.g. ICMP, IGMP
+- provide host addressing (IP)
+- choose the best path to the destination network (Routing)
+- switch packets out of thee correct interface (Forwarding)
+- maintaining quality of service (QoS)
+- connectionless end-to-end networking</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>585</x><y>855</y><w>189</w><h>126</h></coordinates><panel_attributes>ICMP
+--
+Internet Control Message Protocol
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1206</x><y>855</y><w>207</w><h>126</h></coordinates><panel_attributes>IGMP
+--
+Internet Group Management Protocol
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1125</x><y>918</y><w>99</w><h>27</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;90;10</additional_attributes></element><element><id>Relation</id><coordinates><x>765</x><y>918</y><w>99</w><h>27</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;90;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>846</x><y>639</y><w>288</w><h>126</h></coordinates><panel_attributes>Transport layer
+--
+- includes TCP and UDP
+- transport protocols are end-to-end, which means
+  that only the sender and the final recipient
+  need to perform transport protocol activities
+bg=green</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>1548</x><y>585</y><w>225</w><h>90</h></coordinates><panel_attributes>Unlike IP, whose functions are performed
+by every node along the packet route
+bg=green</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1098</x><y>612</y><w>468</w><h>90</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;80;90;10;500;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>477</x><y>639</y><w>297</w><h>126</h></coordinates><panel_attributes>bg=green
+TCP
+--
+Transmission Control Protocol
+- provides a reliable flow of data (confirms their delivery,
+  works in connection mode)
+- for this purpose, it performs their portioning,
+  response time control, connection setup
+- connection-oriented 3-way handshake</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>765</x><y>693</y><w>99</w><h>27</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;90;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1206</x><y>639</y><w>297</w><h>126</h></coordinates><panel_attributes>bg=green
+UDP
+--
+User Datagram Protocol
+- transmits datagrams with no guarantee of delivery
+- connectionless communication</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1125</x><y>693</y><w>99</w><h>27</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;90;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>846</x><y>351</y><w>288</w><h>126</h></coordinates><panel_attributes>Applications layer
+--
+- includes specialized protocols for utility applications
+  (including Telnet, FTP, SMTP, HTTP...)
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1206</x><y>423</y><w>378</w><h>126</h></coordinates><panel_attributes>HTTP (~1989)
+--
+Hypertext Transfer Protocol
+- application layer protocol in the Internet protocol suite model
+  for distributed, collaborative, hypermedia information systems
+- development of HTTP was initiated by Tim Berners-Lee at CERN in 1989
+  and summarized in a simple document describing the behaviour
+  of a client and a server using the first HTTP protocol version
+  that was named 0.9
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>423</x><y>423</y><w>351</w><h>126</h></coordinates><panel_attributes>SMTP
+--
+Simple Mail Transfer Protocol
+- user-level email clients typically use SMTP only for sending
+  messages to a mail server for relaying, and typically submit
+  outgoing email to the mail server on port 587 or 465 per RFC 8314
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1206</x><y>243</y><w>351</w><h>126</h></coordinates><panel_attributes>FTP
+--
+File Transfer Protocol
+- standard communication protocol used for the transfer
+  of computer files from a server to a client on a computer network
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>450</x><y>243</y><w>324</w><h>126</h></coordinates><panel_attributes>Telnet
+--
+Teletype Network
+- client/server application protocol that provides access
+  to virtual terminals of remote systems on local area networks
+  or the Internet
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>981</x><y>468</y><w>27</w><h>189</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;190</additional_attributes></element><element><id>Relation</id><coordinates><x>981</x><y>756</y><w>27</w><h>117</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>981</x><y>1053</y><w>27</w><h>117</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>1125</x><y>396</y><w>99</w><h>108</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;90;100</additional_attributes></element><element><id>Relation</id><coordinates><x>0</x><y>0</y><w>99</w><h>27</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;90;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1125</x><y>297</y><w>99</w><h>126</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;120;90;10</additional_attributes></element><element><id>Relation</id><coordinates><x>765</x><y>297</y><w>99</w><h>126</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>90;120;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>765</x><y>396</y><w>99</w><h>108</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>90;10;10;100</additional_attributes></element><element><id>UMLClass</id><coordinates><x>846</x><y>81</y><w>288</w><h>126</h></coordinates><panel_attributes>TCP/IP model
+--
+bg=white</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>981</x><y>198</y><w>27</w><h>171</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;170</additional_attributes></element><element><id>UMLNote</id><coordinates><x>1224</x><y>1053</y><w>225</w><h>90</h></coordinates><panel_attributes>style=wordwrap
+bg=orange
+**
+prioritize traffic -&gt; sending email can wait unlike phone call</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1026</x><y>1008</y><w>216</w><h>108</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;150;100;220;100</additional_attributes></element><element><id>UMLNote</id><coordinates><x>576</x><y>1170</y><w>198</w><h>90</h></coordinates><panel_attributes>bg=yellow
+style=wordwrap
+**
+ARP - Address Resolution Protocol
+RARP - Reverse Address Resolution Protocol</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>765</x><y>1206</y><w>99</w><h>27</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;90;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>1728</x><y>1170</y><w>198</w><h>90</h></coordinates><panel_attributes>bg=yellow
+style=wordwrap
+**
+Data Link has 2 sublayers</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1728</x><y>1287</y><w>198</w><h>72</h></coordinates><panel_attributes>bg=yellow
+style=wordwrap
+CSMA/CD
+--
+Carrier-sense Multiple Access with collision detection
+- for wired Ethernet</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1629</x><y>1305</y><w>117</w><h>27</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;110;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1728</x><y>1395</y><w>198</w><h>72</h></coordinates><panel_attributes>bg=yellow
+style=wordwrap
+CSMA/CA
+--
+Carrier-sense Multiple Access with collision avoidance
+- for WIFI</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1629</x><y>1305</y><w>117</w><h>144</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>110;140;10;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>1296</x><y>1188</y><w>72</w><h>54</h></coordinates><panel_attributes>bg=yellow
+style=wordwrap
+**
+Data Link</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1125</x><y>1206</y><w>189</w><h>27</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;190;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1359</x><y>1206</y><w>126</w><h>27</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;120;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1359</x><y>1206</y><w>144</w><h>117</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;140;110</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1467</x><y>1377</y><w>207</w><h>72</h></coordinates><panel_attributes>bg=yellow
+style=wordwrap
+CRC
+--
+Error checking
+- dropping frames if the data is corrupted, missing etc.</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1359</x><y>1206</y><w>126</w><h>225</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;120;230</additional_attributes></element></diagram>
