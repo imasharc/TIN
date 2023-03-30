@@ -32,6 +32,9 @@ function is_palindrome(txt) {
 var txt = "A man, a plan, a canal. Panama";
 console.log("Is '" + txt + "' a palindrome? " + is_palindrome(txt) + "\n");
 
+// 3. Determine the name of the type of the parameter provided to a function
+// TBA
+
 // 4. Convert natural numbers into collection of 'coin' values
 function amountToCoins(num, coins) {
   var amount = [0, 0, 0, 0, 0];
