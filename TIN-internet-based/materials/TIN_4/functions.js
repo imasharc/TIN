@@ -35,7 +35,7 @@ function determineType(param) {
     return param + " is of type null";
   } else if (param === undefined) {
     return param + " is of type undefined";
-    // Becuase you cannot determine if a JavaScript object is an array (or a date) by using typeof
+    // Because you cannot determine if a JavaScript object is an array (or a date) by using typeof
     // therefore you may provide additional validation
   } else if (param.constructor === Array) {
     return param + " is of type Array(object)";
