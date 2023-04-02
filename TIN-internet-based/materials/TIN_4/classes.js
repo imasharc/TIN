@@ -4,7 +4,7 @@
     if (typeof username === "undefined" || typeof password === "undefined") {
       console.error("Invalid input for the user! Value of undefined");
       return -1;
-    } else if (username.length < 1 || password < 1) {
+    } else if (username.length < 1 || password.length < 1) {
       console.error("Invalid input for the user! Provided value is too short");
       return -1;
     }
@@ -52,28 +52,62 @@
 }
 
 class Artist extends User {
-  constructor(username, password, stagename) {
+  constructor(username, password, firstName, lastName, stagename) {
     super(username, password);
-    if (typeof stagename === "undefined") {
-      console.error("Invalid input for the stagename! Value of undefined");
+    if (typeof firstName === "undefined" || typeof lastName === "undefined") {
+      console.error("Invalid input for the artist! Value of undefined");
       return -1;
-    } else if (stagename.length < 1) {
+    } else if (firstName.length < 1 || lastName.length < 1) {
       console.error(
-        "Invalid input for the stagename! Provided value is too short"
+        "Invalid input for the artist! Provided value is too short"
       );
       return -1;
     }
-    this.stagename = stagename;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.setStagename(String(stagename));
+  }
+
+  getFirstName() {
+    return this.firstName;
+  }
+
+  setFirstName(firstName) {
+    if (typeof firstName === "undefined") {
+      console.error("Invalid input for the firstName! Value of undefined");
+      return -1;
+    } else if (firstName.length < 1) {
+      console.error(
+        "Invalid input for the firstName! Provided value is too short"
+      );
+      return -1;
+    }
+  }
+
+  getLastName() {
+    return this.lastName;
+  }
+
+  setLastName(lastName) {
+    if (typeof lastName === "undefined") {
+      console.error("Invalid input for the lastName! Value of undefined");
+      return -1;
+    } else if (lastName.length < 1) {
+      console.error(
+        "Invalid input for the lastName! Provided value is too short"
+      );
+      return -1;
+    }
   }
 
   getStagename() {
     return this.stagename;
   }
 
+  // If no value is provided, stageName is set to firstName + " " + lastName
   setStagename(stagename) {
     if (typeof stagename === "undefined") {
-      console.error("Invalid input for the stagename! Value of undefined");
-      return -1;
+      stagename = this.firstName + " " + this.lastName;
     } else if (stagename.length < 1) {
       console.error(
         "Invalid input for the stagename! Provided value is too short"
@@ -99,6 +133,10 @@ class Artist extends User {
       this.username +
       ", password: " +
       this.password +
+      ", firstName: " +
+      this.firstName +
+      ", lastName: " +
+      this.lastName +
       ", stagename: " +
       this.stagename
     );
@@ -146,4 +184,43 @@ class Song {
     }
     this.url = url;
   }
+
+  toString() {
+    return "title: " + this.title + ", url: " + this.url;
+  }
 }
+
+var user_1 = new User("enrico", "NINETOZERO");
+
+var artist_1 = new Artist(
+  user_1.getUsername(),
+  user_1.getPassword(),
+  "Enrico",
+  "Sangiuliano",
+  ""
+);
+
+var artist_2 = new Artist(
+  "charlotte",
+  "charlotte123",
+  "Charlotte",
+  "KNXT",
+  "Charlotte de Witte"
+);
+
+var song_1 = new Song(
+  "Reflection",
+  "https://open.spotify.com/track/67dg2dYPGza76ZEnp7k00d?si=98a7fc8fd3d84082"
+);
+
+artist_1.uploadSong(song_1.getTitle(), song_1.getUrl());
+
+artist_2.uploadSong(
+  "Missing Channel",
+  "https://open.spotify.com/track/1Hs5l7PHbZ0LZAZfAUw1bZ?si=09f194c880614f6d"
+);
+
+console.log(user_1.toString());
+console.log(artist_1.toString());
+console.log(artist_2.toString());
+console.log(song_1.toString());
