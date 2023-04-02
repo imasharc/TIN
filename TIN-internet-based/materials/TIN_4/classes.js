@@ -1,12 +1,24 @@
-﻿class User {
+﻿class ValidationError extends Error {
+  constructor(value) {
+    super(`Invalid input for the ${value}! Value of undefined.`);
+    this.name = "ValidationError";
+  }
+}
+
+class ValueTooShortError extends Error {
+  constructor(value) {
+    super(`Invalid input for the ${value}! Provided value is too short.`);
+    this.name = "ValueTooShortError";
+  }
+}
+
+class User {
   constructor(username, password) {
     // in case when you are not sure if a variable has been declared - more secure than 'username === undefined'?
     if (typeof username === "undefined" || typeof password === "undefined") {
-      console.error("Invalid input for the user! Value of undefined");
-      return -1;
+      throw new ValidationError("User");
     } else if (username.length < 1 || password.length < 1) {
-      console.error("Invalid input for the user! Provided value is too short");
-      return -1;
+      throw new ValueTooShortError("User");
     }
     this.username = String(username);
     this.password = String(password);
@@ -18,13 +30,9 @@
 
   setUsername(username) {
     if (typeof username === "undefined") {
-      console.error("Invalid input for the username! Value of undefined");
-      return -1;
+      throw new ValidationError("username");
     } else if (username.length < 1) {
-      console.error(
-        "Invalid input for the username! Provided value is too short"
-      );
-      return -1;
+      throw new ValueTooShortError("username");
     }
     this.username = username;
   }
@@ -35,19 +43,19 @@
 
   setPassword(password) {
     if (typeof password === "undefined") {
-      console.error("Invalid input for the password! Value of undefined");
-      return -1;
-    } else if (password < 1) {
-      console.error(
-        "Invalid input for the password! Provided value is too short"
+      throw new ValidationError("password");
+    } else if (password < 5) {
+      throw new Error(
+        "Invalid input for the password! Provided password is too weak."
       );
-      return -1;
     }
     this.password = password;
   }
 
   toString() {
-    return "username: " + this.username + ", password: " + this.password;
+    return (
+      "User{username'" + this.username + "', password='" + this.password + "'}"
+    );
   }
 }
 
@@ -55,13 +63,9 @@ class Artist extends User {
   constructor(username, password, firstName, lastName, stagename) {
     super(username, password);
     if (typeof firstName === "undefined" || typeof lastName === "undefined") {
-      console.error("Invalid input for the artist! Value of undefined");
-      return -1;
+      throw new ValidationError("Artist");
     } else if (firstName.length < 1 || lastName.length < 1) {
-      console.error(
-        "Invalid input for the artist! Provided value is too short"
-      );
-      return -1;
+      throw new ValueTooShortError("Artist");
     }
     this.firstName = firstName;
     this.lastName = lastName;
@@ -74,13 +78,9 @@ class Artist extends User {
 
   setFirstName(firstName) {
     if (typeof firstName === "undefined") {
-      console.error("Invalid input for the firstName! Value of undefined");
-      return -1;
+      throw new ValidationError("firstName");
     } else if (firstName.length < 1) {
-      console.error(
-        "Invalid input for the firstName! Provided value is too short"
-      );
-      return -1;
+      throw new ValueTooShortError("firstName");
     }
   }
 
@@ -90,12 +90,10 @@ class Artist extends User {
 
   setLastName(lastName) {
     if (typeof lastName === "undefined") {
-      console.error("Invalid input for the lastName! Value of undefined");
-      return -1;
+      throw new ValidationError("lastName");
     } else if (lastName.length < 1) {
-      console.error(
-        "Invalid input for the lastName! Provided value is too short"
-      );
+      throw new ValueTooShortError("lastName");
+
       return -1;
     }
   }
@@ -109,10 +107,7 @@ class Artist extends User {
     if (typeof stagename === "undefined") {
       stagename = this.firstName + " " + this.lastName;
     } else if (stagename.length < 1) {
-      console.error(
-        "Invalid input for the stagename! Provided value is too short"
-      );
-      return -1;
+      throw new ValueTooShortError("stageName");
     }
     this.stagename = stagename;
   }
@@ -129,16 +124,18 @@ class Artist extends User {
 
   toString() {
     return (
-      "username: " +
+      "Artist{" +
+      "username='" +
       this.username +
-      ", password: " +
+      "', password='" +
       this.password +
-      ", firstName: " +
+      "', firstName='" +
       this.firstName +
-      ", lastName: " +
+      "', lastName='" +
       this.lastName +
-      ", stagename: " +
-      this.stagename
+      "', stagename='" +
+      this.stagename +
+      "'}"
     );
   }
 }
@@ -146,11 +143,9 @@ class Artist extends User {
 class Song {
   constructor(title, url) {
     if (typeof title === "undefined" || typeof url === "undefined") {
-      console.error("Invalid input for the song! Value of undefined");
-      return -1;
+      throw new ValidationError("Song");
     } else if (title.length < 1 || url.length < 1) {
-      console.error("Invalid input for the song! Provided value is too short");
-      return -1;
+      throw new ValueTooShortError("Song");
     }
     this.title = title;
     this.url = url;
@@ -162,11 +157,9 @@ class Song {
 
   setTitle(title) {
     if (typeof title === "undefined") {
-      console.error("Invalid input for the title! Value of undefined");
-      return -1;
+      throw new ValidationError("title");
     } else if (title.length < 1) {
-      console.error("Invalid input for the title! Provided value is too short");
-      return -1;
+      throw new ValueTooShortError("title");
     }
   }
 
@@ -176,17 +169,15 @@ class Song {
 
   setUrl(url) {
     if (typeof url === "undefined") {
-      console.error("Invalid input for the url! Value of undefined");
-      return -1;
+      throw new ValidationError("url");
     } else if (url.length < 1) {
-      console.error("Invalid input for the url! Provided value is too short");
-      return -1;
+      throw new ValueTooShortError("url");
     }
     this.url = url;
   }
 
   toString() {
-    return "title: " + this.title + ", url: " + this.url;
+    return "Song{" + "title='" + this.title + "', url='" + this.url + "'}";
   }
 }
 
@@ -196,8 +187,7 @@ var artist_1 = new Artist(
   user_1.getUsername(),
   user_1.getPassword(),
   "Enrico",
-  "Sangiuliano",
-  ""
+  "Sangiuliano"
 );
 
 var artist_2 = new Artist(
