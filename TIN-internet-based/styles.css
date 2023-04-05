@@ -19,6 +19,7 @@ header {
 nav {
     margin: 1rem;
     background-color: #4b7cb2;
+    text-align: center;
 }
 
 nav ul {
@@ -40,10 +41,10 @@ nav ul li a:hover {
     color: #37110e;
 }
 
-nav ul li a.active {
+/* nav ul li a.active {
     background-color: #4b7cb2;
     color: #ecf0f1;
-}
+} */
 
 main {
     background-color: #cadfec;
@@ -86,4 +87,56 @@ footer {
     padding: 1rem;
     text-align: center;
     margin: 1rem;
+}
+
+@media all and (max-width: 650px) {
+    header {
+        flex-direction: column;
+    }
+
+    header h1 {
+        text-align: center;
+    }
+
+    header img {
+        align-self: center;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+    }
+
+    nav ul li {
+        flex-basis: 100%;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: block;
+    }
+}
+
+@media all and (max-width: 400px) {
+
+    body,
+    nav,
+    nav ul,
+    header,
+    main,
+    footer {
+        margin: 0px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+    }
+
+    nav ul li {
+        flex-basis: 100%;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: block;
+    }
 }
