@@ -5,6 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="styles.css" type="text/css" />
+	<script type='text/javascript' src='formValidation.js'></script>
 	<title>SHARCit</title>
 </head>
 <body>
@@ -31,14 +32,21 @@
 		-->
 		
 		<form class='form' method='post' onsubmit='return validateForm();'>
-			<input type='text' id='songTitle' placeholder='2-30 characters'>title</input>
+			<label for="songTitle">Title: <span class="symbol-required">*</span></label>
+			<input type='text' id='songTitle' placeholder='2-30 characters' />
+			<span id='errorSongTitle' class='errors-text'></span>
+			<!--
 			<input type='text' id='stageName' placeholder='2-30 characters'>artist</input>
 			<input type='text' id='url' placeholder='2-60 characters'>URL</input>
 			<input type='email' id='email' placeholder='2-60 characters'>contact</input>
+			-->
+		
+		
+			<div class='form-buttons'>
+				<input class='form-button-submit' type='submit' />
+			</div>
 		</form>
 		
-		<input class='form-button-submit' type='submit'>submit</input>
-	
 	</main>
 	
 	<footer>
