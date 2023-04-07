@@ -17,30 +17,31 @@
 	<nav>
 		<ul>
 			<li><a href="index.html">Main page</a></li>
-			<li><a href="artist.html">Artists</a></li>
+			<li><a href="">Artists</a></li>
 			<li><a href="">Projects</a></li>
-			<li><a href="">Songs</a></li>
+			<li><a href="song.html">Songs</a></li>
 			<li><a href="about.html">About</a></li>
 		</ul>
 	</nav>
 
 	<main>
 		
-		<!--
-		length validation (e.g. 2-60 chars)
-		email validation
-		-->
-		
 		<form class='form' method='post' onsubmit='return validateForm();'>
 			<label for="songTitle">Title: <span class="symbol-required">*</span></label>
-			<input type='text' id='songTitle' placeholder='2-30 characters' />
+			<input type='text' id='songTitle' placeholder='2-50 characters' />
 			<span id='errorSongTitle' class='errors-text'></span>
-			<!--
-			<input type='text' id='stageName' placeholder='2-30 characters'>artist</input>
-			<input type='text' id='url' placeholder='2-60 characters'>URL</input>
-			<input type='email' id='email' placeholder='2-60 characters'>contact</input>
-			-->
-		
+			
+			<label for="stageName">Artist: <span class="symbol-required">*</span></label>
+			<input type='text' id='stageName' placeholder='2-50 characters' />
+			<span id='errorStageName' class='errors-text'></span>
+
+			<label for="url">URL: <span class="symbol-required">*</span></label>
+			<input type='text' id='url' placeholder='5-120 characters' />
+			<span id='errorUrl' class='errors-text'></span>
+			
+			<label for="email">E-mail: </label>
+			<input type='text' id='email' placeholder='5-60 characters' />
+			<span id='errorEmail' class='errors-text'></span>
 		
 			<div class='form-buttons'>
 				<input class='form-button-submit' type='submit' />
