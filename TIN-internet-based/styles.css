@@ -27,10 +27,17 @@ nav ul {
     background: #87a2c5;
     padding: 0;
     list-style-type: none;
+	text-align: center;
+}
+
+nav ul li {
+	flex-basis: 100%;
+	text-align: center;
 }
 
 nav ul li a {
     display: inline-block;
+	width: 100%;
     color: #37110e;
     padding: 1rem 2rem;
     text-decoration: none;
@@ -83,7 +90,7 @@ main h2 {
 .form {
 	display: grid;
 	grid-template-columns: 100px 250px 1fr;
-	gap: 0.5rem 0rem;
+	gap: 0.5rem 3rem;
 }
 	
 .form select,
@@ -95,14 +102,14 @@ main h2 {
 	color: #2c3e50;
 	border-radius: 4px;
 	padding: 0.5rem;
-	width: 75%;
+	width: 100%;
 }
 
 .form label {
 	display: block;
 	margin-top: 1rem;
 	margin-bottom: 0.5rem;
-	width: 50%;
+	width: 120%;
 }
 
 .form input.error-input,
@@ -151,7 +158,7 @@ footer {
     margin: 1rem;
 }
 
-@media all and (max-width: 650px) {
+@media all and (max-width: 1000px) {
     header {
         flex-direction: column;
     }
@@ -165,7 +172,7 @@ footer {
     }
 
     nav ul {
-        flex-wrap: wrap;
+        flex-wrap: flex;
     }
 
     nav ul li {
@@ -179,8 +186,8 @@ footer {
 	
 	.form {
 		display: grid;
-		grid-template-columns: 100px 250px 1fr;
-		gap: 0.5rem 0rem;
+		grid-template-columns: 100px 300px 1fr;
+		gap: 0.5rem 2rem;
 	}
 		
 	.form select,
@@ -192,14 +199,14 @@ footer {
 		color: #2c3e50;
 		border-radius: 4px;
 		padding: 0.5rem;
-		width: 75%;
+		width: 100%;
 	}
 
 	.form label {
 		display: block;
 		margin-top: 1rem;
 		margin-bottom: 0.5rem;
-		width: 50%;
+		width: 120%;
 	}
 
 	.form input.error-input,
@@ -215,8 +222,8 @@ footer {
 	.errors-text {
 		display: block;
 		font-size: 0.85rem;
-		line-height: 2rem;
-		margin-top: 0.5rem;
+		line-height: 1rem;
+		margin-top: 1rem;
 		color: #c0392b;
 	}
 
@@ -227,7 +234,7 @@ footer {
 
 	.form-button-submit,
 	.form-button-cancel {
-		width: 100%;
+		width: 75%;
 	}
 
 	.form-button-cancel {
@@ -240,7 +247,7 @@ footer {
 	}
 }
 
-@media all and (max-width: 400px) {
+@media all and (max-width: 700px) {
 
     body,
     nav,
@@ -267,7 +274,50 @@ footer {
 	.form {
 		display: grid;
 		grid-template-columns: 100px 150px 0.5fr;
-		gap: 1rem 0.5rem;
+		gap: 0.5rem 1rem;
+	}
+	
+	.form select,
+	.form input[type="text"],
+	.form input[type="number"],
+	.form input[type="date"],
+	.form input[type="email"] {
+		border: 1px solid #7f8c8d;
+		color: #2c3e50;
+		border-radius: 4px;
+		padding: 1rem 1rem;
+		height: 25%;
+		width: 80%;
+	}
+	
+	.form label {
+		display: block;
+		margin-top: 1rem;
+		margin-bottom: 0.5rem;
+		width: 100%;
+	}
+	
+	.form input.error-input,
+	.form select.error-input {
+		border: 3px solid #e74c3c;
+	}
+	
+	.errors-text {
+		display: block;
+		font-size: 0.85rem;
+		line-height: 1rem;
+		margin-top: 0.5rem;
+		color: #c0392b;
+		width: 100%;
+	}
+}
+
+@media all and (max-width: 400px) {
+	
+	.form {
+		display: grid;
+		grid-template-columns: 100px 150px 0.5fr;
+		gap: 0.5rem 1rem;
 	}
 	
 	.form select,
@@ -287,19 +337,19 @@ footer {
 		display: block;
 		margin-top: 1rem;
 		margin-bottom: 0.5rem;
-		width: 50%;
+		width: 100%;
 	}
 	
 	.form input.error-input,
 	.form select.error-input {
-		border: 2px solid #c0392b;
+		border: 3px solid #e74c3c;
 	}
 	
 	.errors-text {
 		display: block;
 		font-size: 0.85rem;
 		line-height: 1rem;
-		margin-top: 0.25rem;
+		margin-top: 0.5rem;
 		color: #c0392b;
 		width: 100%;
 	}
