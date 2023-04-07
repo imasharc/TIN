@@ -4,7 +4,6 @@ function validateForm() {
 	const urlInput = document.getElementById("url");
 	const emailInput = document.getElementById("email");
 	
-	console.log('Hello');
 	const errorSongTitle = document.getElementById("errorSongTitle");
 	/*
 	const errorStageName = document.getElementById(errorStageName);
@@ -22,46 +21,41 @@ function validateForm() {
 		valid = false;
 		songTitleInput.classList.add('error-input');
 		errorSongTitle.innerText = 'The field should contain 2 to 50 characters';
-		console.log('Boy4');
 	}
 	
 	return valid;
 }
 
 function checkRequired(value) {
-	console.log('World');
 	if (!value) {
 		return false;
 	}
 	
 	value = value.toString().trim();
+	
+	if (value === "") {
+		return false;
+	}
 
-  if (value === "") {
-    return false;
-  }
-
-  return true;
+	return true;
 }
 
 function checkTextLengthRange(value, min, max) {
 	
-  if (!value) {
-    console.log('Boy1');
-	return false;
-  }
+	if (!value) {
+		return false;
+	}
 
-  value = value.toString().trim();
-  const length = value.length;
+	value = value.toString().trim();
+	const length = value.length;
 
-  if (length > max) {
-	  console.log('Boy2');
-    return false;
-  }
+	if (length > max) {
+		return false;
+	}
 
-  if (length < min) {
-	  console.log('Boy3');
-    return false;
-  }
+	if (length < min) {
+		return false;
+	}
 
-  return true;
+	return true;
 }
