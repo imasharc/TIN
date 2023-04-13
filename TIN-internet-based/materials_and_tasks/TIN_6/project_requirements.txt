@@ -1,0 +1,24 @@
+﻿Unregistered user:
+    1. User may register by providing username and password of his choice
+    2. User may browse the catalog of artists and songs
+    3. User cannot add, edit nor delete existing songs and/or artists
+
+Registered user:
+    1. User may login with already provided username and password
+    2. User may change his/her username and/or password
+    3. User may add songs to his 'favourites' catalog
+    3. User may follow artists
+    4. User may support artists by 'subscribing' to their profile (involves payment)
+    5. User may access songs before their release date by subscribing to the artist
+    6. User may gain distribution rights for the song by paying 'distribution' fee (invloves payment, may be reoccuring)
+
+Artist:
+    1. Artist may perform all of the above actions
+    2. Artist may perform all actions of the Manager
+    3. Artist may add, edit and delete existing songs (provided they published the song from their account)
+    4. Artist may organize online audio-visual meetings with registered users
+    5. Artist may share various resources on his profile (including audio, video, text files etc.) in order to showcase the creation process
+
+Manager:
+    1. Manager may manage artist's songs catalog on behalf of the artist
+    2. Manager may organize online audio-visual meetings with registered users on behalf of the artist
