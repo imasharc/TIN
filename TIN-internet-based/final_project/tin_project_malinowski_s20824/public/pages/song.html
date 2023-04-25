@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css" type="text/css" />
+	<script type='text/javascript' src='formValidation.js'></script>
+	<title>SHARCit</title>
+</head>
+<body>
+	<header>
+		<h1>Welcome to SHARCit</h1>
+		<img src="https://imgs.search.brave.com/pkdgF4hiIv5L1IF42UayisHXo9Whmt0biHuX_WWMm_o/rs:fit:600:600:1/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2FmLzZj/L2Y5L2FmNmNmOTIx/ODVlMGZhMjIzNGYy/ZDUxYTE1NTM4YWMy/LnBuZw" alt="ShaReCon logo" width="200">
+	</header>
+	
+	<nav>
+		<ul>
+			<li><a href="index.html">Main page</a></li>
+			<li><a href="">Artists</a></li>
+			<li><a href="">Projects</a></li>
+			<li><a href="song.html">Songs</a></li>
+			<li><a href="about.html">About</a></li>
+		</ul>
+	</nav>
+
+	<main>
+		
+		<form class='form' method='post' onsubmit='return validateForm();'>
+			<label for="songTitle">Title: <span class="symbol-required">*</span></label>
+			<input type='text' id='songTitle' placeholder='2-50 characters' />
+			<span id='errorSongTitle' class='errors-text'></span>
+			
+			<label for="stageName">Artist: <span class="symbol-required">*</span></label>
+			<input type='text' id='stageName' placeholder='2-50 characters' />
+			<span id='errorStageName' class='errors-text'></span>
+
+			<label for="url">URL: <span class="symbol-required">*</span></label>
+			<input type='text' id='url' placeholder='5-120 characters' />
+			<span id='errorUrl' class='errors-text'></span>
+			
+			<label for="email">E-mail: </label>
+			<input type='text' id='email' placeholder='5-60 characters' />
+			<span id='errorEmail' class='errors-text'></span>
+		
+			<div class='form-buttons'>
+				<input class='form-button-submit' type='submit' />
+			</div>
+		</form>
+		
+	</main>
+	
+	<footer>
+		<p>Antoni Malinowski s20824</p>
+	</footer>
+</body>
+</html>
