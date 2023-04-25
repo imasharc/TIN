@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -19,7 +19,7 @@
 			<li><a href="../../index.html">Main page</a></li>
 			<li><a href="">Artists</a></li>
 			<li><a href="">Projects</a></li>
-			<li><a href="">Songs</a></li>
+			<li><a href="list.html">Songs</a></li>
 			<li><a href="../../about.html">About</a></li>
 		</ul>
 	</nav>
@@ -43,9 +43,39 @@
 			<input type='text' id='email' placeholder='5-60 characters' />
 			<span id='errorEmail' class='errors-text'></span>
 		
-			<div class='form-buttons'>
-				<input class='form-button-submit' type='submit' />
-			</div>
+			<a href="./form.html">Edit</a>
+
+            <h2>Project details</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Employee</th>
+                        <th>Project</th>
+                        <th>Start</th>
+                        <th>Deadline</th>
+                        <th>Budget</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Richard Hendricks</td>
+                        <td>Node storage optimization</td>
+                        <td>2026-06-20</td>
+                        <td>2026-10-19</td>
+                        <td>$2 200.00</td>
+                    </tr>
+                    <tr>
+                        <td>Richard Hendricks</td>
+                        <td>File sharing infrastructure</td>
+                        <td>2023-03-10</td>
+                        <td>2023-06-05</td>
+                        <td>$13 500.00</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <a href="list.html">Back</a>
 		</form>
 		
 	</main>
