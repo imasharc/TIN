@@ -19,6 +19,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
+app.use("/about", indexRouter);
 
 const songRouter = require("./routes/songRoute");
 app.use("/songs", songRouter);
