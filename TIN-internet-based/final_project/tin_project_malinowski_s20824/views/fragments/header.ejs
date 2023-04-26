@@ -15,10 +15,10 @@
 	
 	<nav>
 		<ul>
-			<li><a href="/">Main page</a></li>
+			<li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">Main page</a></li>
 			<li><a href="">Artists</a></li>
 			<li><a href="">Projects</a></li>
-			<li><a href="/songs">Songs</a></li>
-			<li><a href="/about">About</a></li>
+			<li><a href="/songs" class="<%= navLocation == 'song' ? 'active' : ''%>">Songs</a></li>
+			<li><a href="/about" class="<%= navLocation == 'about' ? 'active' : ''%>">About</a></li>
 		</ul>
 	</nav>
