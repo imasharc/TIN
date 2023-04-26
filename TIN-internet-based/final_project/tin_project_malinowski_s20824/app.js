@@ -3,10 +3,13 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-
 var indexRouter = require("./routes/index");
-
 var app = express();
+
+const sequelizeInit = require("./config/sequelize/init");
+sequelizeInit().catch((err) => {
+  console.log(err);
+});
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
