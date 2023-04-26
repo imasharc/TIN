@@ -27,7 +27,7 @@ nav ul {
     background: #87a2c5;
     padding: 0;
     list-style-type: none;
-	text-align: center;
+
 }
 
 nav ul li {
@@ -37,7 +37,6 @@ nav ul li {
 
 nav ul li a {
     display: inline-block;
-	width: 100%;
     color: #37110e;
     padding: 1rem 2rem;
     text-decoration: none;
@@ -45,13 +44,15 @@ nav ul li a {
 
 nav ul li a:hover {
     background-color: #bddef3;
+	width: 75%;
     color: #37110e;
 }
 
-/* nav ul li a.active {
+nav ul li a.active {
     background-color: #4b7cb2;
+	width: 75%;
     color: #ecf0f1;
-} */
+}
 
 main {
     background-color: #cadfec;
