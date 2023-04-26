@@ -1,0 +1,1 @@
+﻿CREATE SCHEMA IF NOT EXISTS `tin_project_malinowski_s20824`
