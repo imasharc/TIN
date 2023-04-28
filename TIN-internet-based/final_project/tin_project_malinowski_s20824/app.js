@@ -11,6 +11,9 @@ sequelizeInit().catch((err) => {
   console.log(err);
 });
 
+const songApiRouter = require("./routes/api/SongApiRoute");
+app.use("/api/songs", songApiRouter);
+
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
