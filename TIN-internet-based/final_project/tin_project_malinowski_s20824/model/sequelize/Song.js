@@ -9,15 +9,15 @@ const Song = sequelize.define("Song", {
     primaryKey: true,
   },
   title: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(50),
     allowNull: false,
   },
   url: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(50),
     allowNull: false,
   },
   isrc: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(12),
     allowNull: true,
   },
 });
