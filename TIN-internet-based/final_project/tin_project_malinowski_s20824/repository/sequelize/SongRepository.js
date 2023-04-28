@@ -20,7 +20,7 @@ exports.updateSong = (songId, songData) => {
   const title = songData.title;
   const url = songData.url;
   const isrc = songData.isrc;
-  return Song.update(songId, { where: { id: songId } });
+  return Song.update(songData, { where: { id: songId } });
 };
 
 exports.deleteSong = (songId) => {
