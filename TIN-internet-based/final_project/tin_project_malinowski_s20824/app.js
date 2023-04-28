@@ -5,6 +5,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var indexRouter = require("./routes/index");
 var app = express();
+app.use(express.json());
 
 const sequelizeInit = require("./config/sequelize/init");
 sequelizeInit().catch((err) => {
