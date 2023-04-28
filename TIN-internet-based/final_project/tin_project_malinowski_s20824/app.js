@@ -7,20 +7,11 @@ var indexRouter = require("./routes/index");
 var app = express();
 app.use(express.json());
 
-const sequelizeInit = require("./config/sequelize/init");
-sequelizeInit().catch((err) => {
-  console.log(err);
-});
-
-const songApiRouter = require("./routes/api/SongApiRoute");
-app.use("/api/songs", songApiRouter);
-
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 app.use(logger("dev"));
-app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
@@ -30,6 +21,14 @@ app.use("/about", indexRouter);
 
 const songRouter = require("./routes/songRoute");
 app.use("/songs", songRouter);
+
+const sequelizeInit = require("./config/sequelize/init");
+sequelizeInit().catch((err) => {
+  console.log(err);
+});
+
+const songApiRouter = require("./routes/api/SongApiRoute");
+app.use("/api/songs", songApiRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
