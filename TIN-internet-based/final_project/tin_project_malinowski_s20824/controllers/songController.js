@@ -1,5 +1,12 @@
-﻿exports.showSongList = (req, res, next) => {
-  res.render("pages/song/list", { navLocation: "song" });
+﻿const SongRepository = require("../repository/sequelize/SongRepository");
+
+exports.showSongList = (req, res, next) => {
+  SongRepository.getSongs().then((songs) => {
+    res.render("pages/song/list", {
+      songs: songs,
+      navLocation: "song",
+    });
+  });
 };
 
 exports.showAddSongForm = (req, res, next) => {
