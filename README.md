@@ -13,8 +13,8 @@ The purpose of this mini project is to create a prototype application to plan an
 TIN-internet-based
 This sub-directory documents the implementation of the final project done for the internet based TIN classes (PJAIT course). The final project consists of several mini-projects which are highly inspired by my work published at https://github.com/antonimalinowski/TIN
 
-HOW TO RUN tin_project (from MP2/tin-project-malinowski-s20824 OR TIN-internet-based/final_project/tin_project_malinowski_s20824):/
-cd docker/
-docker-compose up/
-npm i -y/
+HOW TO RUN tin_project (from MP2/tin-project-malinowski-s20824 OR TIN-internet-based/final_project/tin_project_malinowski_s20824):\
+cd docker\
+docker-compose up\
+npm i -y\
 npm start
