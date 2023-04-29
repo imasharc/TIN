@@ -17,7 +17,7 @@
 			<span id="errorUrl" class="errors-text"></span>
 			
 			<label for="text">ISRC: </label>
-			<input type="text" id="isrc" placeholder="5-60 characters" value="<%= song.isrc %>"
+			<input type="text" name="isrc" id="isrc" placeholder="5-60 characters" value="<%= song.isrc %>"
 			<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
 			<span id="errorISRC" class="errors-text"></span>
 		
