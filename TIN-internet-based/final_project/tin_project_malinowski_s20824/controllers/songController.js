@@ -47,3 +47,25 @@ exports.showEditSongForm = (req, res, next) => {
     });
   });
 };
+
+exports.addSong = (req, res, next) => {
+  const songData = { ...req.body };
+  SongRepository.createSong(songData).then((result) => {
+    res.redirect("/songs");
+  });
+};
+
+exports.updateSong = (req, res, next) => {
+  const songId = req.body.id;
+  const songData = { ...req.body };
+  SongRepository.updateSong(songId, songData).then((result) => {
+    res.redirect("/songs");
+  });
+};
+
+exports.deleteSong = (req, res, next) => {
+  const songId = req.params.songId;
+  SongRepository.deleteSong(songId).then(() => {
+    res.redirect("/songs");
+  });
+};
