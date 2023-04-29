@@ -23,7 +23,7 @@ exports.showAddSongForm = (req, res, next) => {
 exports.showSongDetails = (req, res, next) => {
   const songId = req.params.songId;
   SongRepository.getSongById(songId).then((song) => {
-    res.render("pages/song/details", {
+    res.render("pages/song/form", {
       song: song,
       formMode: "showDetails",
       pageTitle: "Show Details",

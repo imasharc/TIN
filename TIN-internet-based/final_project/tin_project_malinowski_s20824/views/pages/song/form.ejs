@@ -1,28 +1,64 @@
 <%-include('../../fragments/header.ejs') %>
 
 	<main>
-		
-		<form class='form' method='post' onsubmit='return validateForm();'>
+		<script type="application/javascript" src="/TIN-internet-based/final_project/tin_project_malinowski_s20824/public/javascripts/formValidation.js"></script>
+		<h2><%= pageTitle %></h2>
+		<form class='form' method='post' action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+			<input type="hidden" name="id" value="<%= song.id %>">
+
 			<label for="songTitle">Title: <span class="symbol-required">*</span></label>
-			<input type='text' id='songTitle' placeholder='2-50 characters' />
+			<input type="text" name="title" id="songTitle" placeholder="2-50 characters" value="<%= song.title %>"
+				<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
 			<span id='errorSongTitle' class='errors-text'></span>
-			
-			<label for="stageName">Artist: <span class="symbol-required">*</span></label>
-			<input type='text' id='stageName' placeholder='2-50 characters' />
-			<span id='errorStageName' class='errors-text'></span>
 
 			<label for="url">URL: <span class="symbol-required">*</span></label>
-			<input type='text' id='url' placeholder='5-120 characters' />
-			<span id='errorUrl' class='errors-text'></span>
+			<input type="text" name="url" id="url" placeholder="5-120 characters" value="<%= song.url %>"
+			<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<span id="errorUrl" class="errors-text"></span>
 			
-			<label for="email">E-mail: </label>
-			<input type='text' id='email' placeholder='5-60 characters' />
-			<span id='errorEmail' class='errors-text'></span>
+			<label for="text">ISRC: </label>
+			<input type="text" id="isrc" placeholder="5-60 characters" value="<%= song.isrc %>"
+			<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<span id="errorISRC" class="errors-text"></span>
 		
-			<div class='form-buttons'>
-				<input class='form-button-submit' type='submit' />
-			</div>
+			<% if (formMode == 'showDetails') { %>
+                <div>
+                    <a class="list-actions-button-edit" href="/songs/edit/<%= song.id %>">Edit</a>
+                </div>
+            <% } %>
+            
+            <div class="form-buttons">
+                <p id="errorsSummary" class="errors-text"></p>
+                <% if (formMode != 'showDetails') { %>
+                    <input class="form-button-submit" type="submit" value="<%=btnLabel%>"/>
+                    <a class="form-button-cancel" href="/songs">Cancel</a>
+                <% } else { %>
+                    <a class="form-button-cancel" href="/songs">Return</a>
+                <% } %>
+            </div>
 		</form>
+
+
+			<% if (formMode == 'showDetails' || formMode == 'edit') { %>
+			<h2>Song details</h2>
+
+			<table class="table-list">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>URL</th>
+						<th>ISRC</th>
+					</tr>
+				</thead>
+                <tbody>
+					<tr>
+						<td><%= song.title %></td>
+						<td><a href="<%= song.url %>" target="_blank"><%= song.url %></a></td>
+						<td><%= song.isrc %></td>
+					</tr>
+				</tbody>
+            </table>
+			<% } %>
 		
 	</main>
 	
