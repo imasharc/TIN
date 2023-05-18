@@ -1,0 +1,43 @@
+﻿<%-include('../../fragments/header.ejs') %>
+
+	<main>
+        <h2>Engineers list</h2>
+        <table class="table-list">
+            <thead>
+                <tr>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Specialisation</th>
+                    <th>Hour rate</th>
+                    <th>Contact</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let engineer of engineers) { %>
+                    <tr>
+                        <td><%= engineer.firstName %></td>
+                        <td><%= engineer.lastName %></td>
+                        <td><%= engineer.specialisation %></td>
+                        <td><%= engineer.hourRate %></td>
+                        <td><%= engineer.contact %></td>
+                        <td>
+                            <ul class="list-actions">
+                                <li>
+                                    <a href="/engineers/details/<%=engineer.id%>" class="list-actions-button-details">Details</a>
+                                </li>
+                                <li>
+                                    <a href="/engineers/edit/<%=engineer.id%>" class="list-actions-button-edit">Edit</a>
+                                </li>
+                                <li>
+                                    <a href="/engineers/delete/<%=engineer.id%>" class="list-actions-button-delete">Delete</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+
+        <p><a href="/engineers/add" class="button-add">Add new song</a></p>
+	
+<%-include('../../fragments/footer.ejs') %>

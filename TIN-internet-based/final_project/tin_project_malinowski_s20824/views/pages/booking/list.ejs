@@ -1,0 +1,47 @@
+﻿<%-include('../../fragments/header.ejs') %>
+
+	<main>
+        <h2>Bookings list</h2>
+        <table class="table-list">
+            <thead>
+                <tr>
+                    <th>Start time</th>
+                    <th>End time</th>
+                    <th>Client first name</th>
+                    <th>Client last name</th>
+                    <th>Contact</th>
+                    <th>Engineer</th>
+                    <th>Studio name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let booking of bookings) { %>
+                    <tr>
+                        <td><%= booking.startTime.toLocaleDateString() %> <%= booking.startTime.toTimeString().split(':00 GMT')[0] %></td>
+						<td><%= booking.endTime.toLocaleDateString() %> <%= booking.endTime.toTimeString().split(':00 GMT')[0] %></td>
+						<td><%= booking.firstName %></td>
+						<td><%= booking.lastName %></td>
+						<td><%= booking.contact %></td>
+						<td><a href="/engineers/details/<%= booking.engineer.id %>"><%= booking.engineer.firstName %> <%= booking.engineer.lastName %></a></td>
+						<td><a href="/studios/details/<%= booking.studio.id %>"><%= booking.studio.name %></a></td>
+                        <td>
+                            <ul class="list-actions">
+                                <li>
+                                    <a href="/bookings/details/<%=booking.id%>" class="list-actions-button-details">Details</a>
+                                </li>
+                                <li>
+                                    <a href="/bookings/edit/<%=booking.id%>" class="list-actions-button-edit">Edit</a>
+                                </li>
+                                <li>
+                                    <a href="/bookings/delete/<%=booking.id%>" class="list-actions-button-delete">Delete</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+
+        <p><a href="/bookings/add" class="button-add">Add new booking</a></p>
+	
+<%-include('../../fragments/footer.ejs') %>
