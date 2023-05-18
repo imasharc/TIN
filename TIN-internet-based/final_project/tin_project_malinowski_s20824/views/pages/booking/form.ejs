@@ -1,0 +1,70 @@
+<%-include('../../fragments/header.ejs') %>
+
+	<main>
+		<!-- <script type="application/javascript" src="/javascripts/formValidation.js"></script> -->
+		<h2><%= pageTitle %></h2>
+		<form class='form' method='post' action="<%=formAction%>" novalidate>
+			<input type="hidden" name="id" value="<%= booking.id %>">
+
+			<label for="startTime">Start time: <span class="symbol-required">*</span></label>
+            <input type="datetime-local" name="startTime" id="startTime" value="<%= (formMode=='createNew') ? '': booking.startTime.toLocaleDateString() %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
+            <!-- <span id="errorStartDate" class="errors-text"></span> -->
+
+			<label for="endTime">End time: <span class="symbol-required">*</span></label>
+            <input type="datetime-local" name="endTime" id="endTime" value="<%= (formMode=='createNew') ? '': booking.endTime.toLocaleDateString() %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
+            <!-- <span id="errorStartDate" class="errors-text"></span> -->
+
+			<label for="firstName">First name: <span class="symbol-required">*</span></label>
+			<input type="text" name="firstName" id="firstName" placeholder="2-50 characters" value="<%= booking.firstName %>"
+				<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<!-- <span id='errorTitle' class='errors-text'></span> -->
+
+			<label for="lastName">Last name: <span class="symbol-required">*</span></label>
+			<input type="text" name="lastName" id="lastName" placeholder="2-50 characters" value="<%= booking.lastName %>"
+				<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<!-- <span id='errorTitle' class='errors-text'></span> -->
+
+			<label for="contact">Contact: <span class="symbol-required">*</span></label>
+			<input type="text" name="contact" id="contact" placeholder="2-50 characters" value="<%= booking.contact %>"
+				<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<!-- <span id='errorTitle' class='errors-text'></span> -->
+
+			<label for="engineerId">Engineer: <span class="symbol-required">*</span></label>
+            <select name="engineerId" id="engineerId" required <%= (formMode == 'showDetails') ? 'disabled' : ''%> >
+                <option value="" selected>-- Choose engineer --</option>
+                <% for (let i=0; i<allEngineers.length; i++) { let engineer = allEngineers[i]; %>
+                    <option value="<%= engineer.id %>" label="<%= engineer.firstName + ' ' + engineer.lastName %>"
+                        <%= (booking.id && engineer.id.toString() == booking.engineerId.toString()) ? 'selected' : ''%>></option>
+                <% } %>
+            </select>
+
+			<label for="studioId">Studio: <span class="symbol-required">*</span></label>
+            <select name="studioId" id="studioId" required <%= (formMode == 'showDetails') ? 'disabled' : ''%> >
+                <option value="" selected>-- Choose studio --</option>
+                <% for (let i=0; i<allStudios.length; i++) { let studio = allStudios[i]; %>
+                    <option value="<%= studio.id %>" label="<%= studio.name %>"
+                        <%= (booking.id && studio.id.toString() == booking.studioId.toString()) ? 'selected' : ''%>></option>
+                <% } %>
+            </select>
+		
+			<% if (formMode == 'showDetails') { %>
+                <div>
+                    <a class="list-actions-button-edit" href="/bookings/edit/<%= booking.id %>">Edit</a>
+                </div>
+            <% } %>
+            
+            <div class="form-buttons">
+                <p id="errorsSummary" class="errors-text"></p>
+                <% if (formMode != 'showDetails') { %>
+                    <input class="form-button-submit" type="submit" value="<%=btnLabel%>"/>
+                    <a class="form-button-cancel" href="/bookings">Cancel</a>
+                <% } else { %>
+                    <a class="form-button-cancel" href="/bookings">Return</a>
+                <% } %>
+            </div>
+		</form>
+	</main>
+	
+<%-include('../../fragments/footer.ejs') %>

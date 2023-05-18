@@ -1,0 +1,88 @@
+<%-include('../../fragments/header.ejs') %>
+
+	<main>
+		<!-- <script type="application/javascript" src="/javascripts/formValidation.js"></script> -->
+		<h2><%= pageTitle %></h2>
+		<form class='form' method='post' action="<%=formAction%>" novalidate>
+			<input type="hidden" name="id" value="<%= studio.id %>">
+
+			<label for="title">Name: <span class="symbol-required">*</span></label>
+			<input type="text" name="name" id="name" placeholder="2-50 characters" value="<%= studio.name %>"
+				<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<!-- <span id='errorTitle' class='errors-text'></span> -->
+
+			<label for="url">Street: <span class="symbol-required">*</span></label>
+			<input type="text" name="street" id="street" placeholder="5-120 characters" value="<%= studio.street %>"
+			<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<!-- <span id="errorUrl" class="errors-text"></span> -->
+			
+			<label for="postalCode">Postal Code: </label>
+			<input type="text" name="postalCode" id="postalCode" placeholder="5-60 characters" value="<%= studio.postalCode %>"
+			<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<!-- <span id="errorISRC" class="errors-text"></span> -->
+
+			<label for="city">City: </label>
+			<input type="text" name="city" id="city" placeholder="5-60 characters" value="<%= studio.city %>"
+			<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<!-- <span id="errorISRC" class="errors-text"></span> -->
+			
+			<label for="hourRate">Hour rate: <span class="symbol-required">*</span></label>
+			<input type="number" name="hourRate" id="hourRate" placeholder="2-50 characters" value="<%= studio.hourRate %>"
+				<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<!-- <span id='errorTitle' class='errors-text'></span> -->
+
+			<label for="contact">Contact: <span class="symbol-required">*</span></label>
+			<input type="text" name="contact" id="contact" placeholder="2-50 characters" value="<%= studio.contact %>"
+				<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<!-- <span id='errorTitle' class='errors-text'></span> -->
+		
+			<% if (formMode == 'showDetails') { %>
+                <div>
+                    <a class="list-actions-button-edit" href="/studios/edit/<%= studio.id %>">Edit</a>
+                </div>
+            <% } %>
+            
+            <div class="form-buttons">
+                <p id="errorsSummary" class="errors-text"></p>
+                <% if (formMode != 'showDetails') { %>
+                    <input class="form-button-submit" type="submit" value="<%=btnLabel%>"/>
+                    <a class="form-button-cancel" href="/studios">Cancel</a>
+                <% } else { %>
+                    <a class="form-button-cancel" href="/studios">Return</a>
+                <% } %>
+            </div>
+		</form>
+
+
+		<% if (formMode == 'showDetails' || formMode == 'edit') { %>
+			<h2>Studio details</h2>
+
+			<table class="table-list">
+				<thead>
+					<tr>
+						<th>Engineer</th>
+						<th>Start time</th>
+						<th>End time</th>
+						<th>Client first name</th>
+						<th>Client last name</th>
+						<th>Contact</th>
+					</tr>
+				</thead>
+                <tbody>
+				<% for (let s of studio.bookings) { %>
+					<tr>
+						<td><a href="/engineers/details/<%= s.engineer.id %>"><%= s.engineer.firstName %> <%= s.engineer.lastName %></a></td>
+						<td><%= s.startTime.toLocaleDateString() %> <%= s.startTime.toTimeString().split(':00 GMT')[0] %></td>
+						<td><%= s.endTime.toLocaleDateString() %> <%= s.endTime.toTimeString().split(':00 GMT')[0] %></td>
+						<td><%= s.firstName %></td>
+						<td><%= s.lastName %></td>
+						<td><%= s.contact %></td>
+					</tr>
+				<% } %>
+				</tbody>
+            </table>
+			<% } %>
+		
+	</main>
+	
+<%-include('../../fragments/footer.ejs') %>

@@ -1,0 +1,83 @@
+<%-include('../../fragments/header.ejs') %>
+
+	<main>
+		<!-- <script type="application/javascript" src="/javascripts/formValidation.js"></script> -->
+		<h2><%= pageTitle %></h2>
+		<form class='form' method='post' action="<%=formAction%>" >
+			<input type="hidden" name="id" value="<%= engineer.id %>">
+
+			<label for="firstName">First name: <span class="symbol-required">*</span></label>
+			<input type="text" name="firstName" id="firstName" placeholder="2-50 characters" value="<%= engineer.firstName %>"
+				<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<!-- <span id='errorTitle' class='errors-text'></span> -->
+
+			<label for="lastName">Last name: <span class="symbol-required">*</span></label>
+			<input type="text" name="lastName" id="lastName" placeholder="2-50 characters" value="<%= engineer.lastName %>"
+				<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<!-- <span id='errorTitle' class='errors-text'></span> -->
+			
+			<label for="specialisation">Specialisation: <span class="symbol-required">*</span></label>
+			<input type="text" name="specialisation" id="specialisation" placeholder="2-50 characters" value="<%= engineer.specialisation %>"
+				<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<!-- <span id='errorTitle' class='errors-text'></span> -->
+
+			<label for="hourRate">Hour rate: <span class="symbol-required">*</span></label>
+			<input type="number" name="hourRate" id="hourRate" value="<%= engineer.hourRate %>"
+				<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<!-- <span id='errorTitle' class='errors-text'></span> -->
+
+			<label for="contact">Contact: <span class="symbol-required">*</span></label>
+			<input type="text" name="contact" id="contact" placeholder="2-50 characters" value="<%= engineer.contact %>"
+				<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<!-- <span id='errorTitle' class='errors-text'></span> -->
+		
+			<% if (formMode == 'showDetails') { %>
+                <div>
+                    <a class="list-actions-button-edit" href="/engineers/edit/<%= engineer.id %>">Edit</a>
+                </div>
+            <% } %>
+            
+            <div class="form-buttons">
+                <p id="errorsSummary" class="errors-text"></p>
+                <% if (formMode != 'showDetails') { %>
+                    <input class="form-button-submit" type="submit" value="<%=btnLabel%>"/>
+                    <a class="form-button-cancel" href="/engineers">Cancel</a>
+                <% } else { %>
+                    <a class="form-button-cancel" href="/engineers">Return</a>
+                <% } %>
+            </div>
+		</form>
+
+
+			<% if (formMode == 'showDetails' || formMode == 'edit') { %>
+			<h2>Engineer details</h2>
+
+			<table class="table-list">
+				<thead>
+					<tr>
+						<th>Studio</th>
+						<th>Start time</th>
+						<th>End time</th>
+						<th>Client first name</th>
+						<th>Client last name</th>
+						<th>Contact</th>
+					</tr>
+				</thead>
+                <tbody>
+				<% for (let e of engineer.bookings) { %>
+					<tr>
+						<td><a href="/studios/details/<%= e.studio.id %>"><%= e.studio.name %></a></td>
+						<td><%= e.startTime.toLocaleDateString() %> <%= e.startTime.toTimeString().split(':00 GMT')[0] %></td>
+						<td><%= e.endTime.toLocaleDateString() %> <%= e.endTime.toTimeString().split(':00 GMT')[0] %></td>
+						<td><%= e.firstName %></td>
+						<td><%= e.lastName %></td>
+						<td><%= e.contact %></td>
+					</tr>
+				<% } %>
+				</tbody>
+            </table>
+			<% } %>
+		
+	</main>
+	
+<%-include('../../fragments/footer.ejs') %>
