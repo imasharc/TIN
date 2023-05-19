@@ -1,35 +1,36 @@
 <%-include('../../fragments/header.ejs') %>
 
 	<main>
-		<!-- <script type="application/javascript" src="/javascripts/formValidation.js"></script> -->
+		<script type="application/javascript" src="/javascripts/validationCommon.js"></script>
+		<script type="application/javascript" src="/javascripts/validationEngineerForm.js"></script>
 		<h2><%= pageTitle %></h2>
-		<form class='form' method='post' action="<%=formAction%>" >
+		<form class='form' method='post' action="<%=formAction%>" onsubmit="return validateForm();">
 			<input type="hidden" name="id" value="<%= engineer.id %>">
 
 			<label for="firstName">First name: <span class="symbol-required">*</span></label>
 			<input type="text" name="firstName" id="firstName" placeholder="2-50 characters" value="<%= engineer.firstName %>"
 				<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-			<!-- <span id='errorTitle' class='errors-text'></span> -->
+			<span id='errorFirstName' class='errors-text'></span>
 
 			<label for="lastName">Last name: <span class="symbol-required">*</span></label>
 			<input type="text" name="lastName" id="lastName" placeholder="2-50 characters" value="<%= engineer.lastName %>"
 				<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-			<!-- <span id='errorTitle' class='errors-text'></span> -->
+			<span id='errorLastName' class='errors-text'></span>
 			
 			<label for="specialisation">Specialisation: <span class="symbol-required">*</span></label>
 			<input type="text" name="specialisation" id="specialisation" placeholder="2-50 characters" value="<%= engineer.specialisation %>"
 				<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-			<!-- <span id='errorTitle' class='errors-text'></span> -->
+			<span id='errorSpecialisation' class='errors-text'></span>
 
 			<label for="hourRate">Hour rate: <span class="symbol-required">*</span></label>
 			<input type="number" name="hourRate" id="hourRate" value="<%= engineer.hourRate %>"
 				<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-			<!-- <span id='errorTitle' class='errors-text'></span> -->
+			<span id='errorHourRate' class='errors-text'></span>
 
 			<label for="contact">Contact: <span class="symbol-required">*</span></label>
 			<input type="text" name="contact" id="contact" placeholder="2-50 characters" value="<%= engineer.contact %>"
 				<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-			<!-- <span id='errorTitle' class='errors-text'></span> -->
+			<span id='errorContact' class='errors-text'></span>
 		
 			<% if (formMode == 'showDetails') { %>
                 <div>

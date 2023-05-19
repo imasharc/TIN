@@ -1,40 +1,41 @@
 <%-include('../../fragments/header.ejs') %>
 
 	<main>
-		<!-- <script type="application/javascript" src="/javascripts/formValidation.js"></script> -->
+		<!-- <script type="application/javascript" src="/javascripts/validationCommon.js"></script> -->
+		<script type="application/javascript" src="/javascripts/validationStudioForm.js"></script>
 		<h2><%= pageTitle %></h2>
-		<form class='form' method='post' action="<%=formAction%>" novalidate>
+		<form class='form' method='post' action="<%=formAction%>" novalidate onsubmit="return validateForm();">
 			<input type="hidden" name="id" value="<%= studio.id %>">
 
-			<label for="title">Name: <span class="symbol-required">*</span></label>
+			<label for="name">Name: <span class="symbol-required">*</span></label>
 			<input type="text" name="name" id="name" placeholder="2-50 characters" value="<%= studio.name %>"
 				<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-			<!-- <span id='errorTitle' class='errors-text'></span> -->
+			<span id='errorName' class='errors-text'></span>
 
-			<label for="url">Street: <span class="symbol-required">*</span></label>
-			<input type="text" name="street" id="street" placeholder="5-120 characters" value="<%= studio.street %>"
+			<label for="street">Street: <span class="symbol-required">*</span></label>
+			<input type="text" name="street" id="street" placeholder="2-50 characters" value="<%= studio.street %>"
 			<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-			<!-- <span id="errorUrl" class="errors-text"></span> -->
+			<span id="errorStreet" class="errors-text"></span>
 			
 			<label for="postalCode">Postal Code: </label>
-			<input type="text" name="postalCode" id="postalCode" placeholder="5-60 characters" value="<%= studio.postalCode %>"
+			<input type="text" name="postalCode" id="postalCode" placeholder="5-50 characters" value="<%= studio.postalCode %>"
 			<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-			<!-- <span id="errorISRC" class="errors-text"></span> -->
+			<span id="errorPostalCode" class="errors-text"></span>
 
 			<label for="city">City: </label>
-			<input type="text" name="city" id="city" placeholder="5-60 characters" value="<%= studio.city %>"
+			<input type="text" name="city" id="city" placeholder="5-50 characters" value="<%= studio.city %>"
 			<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-			<!-- <span id="errorISRC" class="errors-text"></span> -->
+			<span id="errorCity" class="errors-text"></span>
 			
 			<label for="hourRate">Hour rate: <span class="symbol-required">*</span></label>
-			<input type="number" name="hourRate" id="hourRate" placeholder="2-50 characters" value="<%= studio.hourRate %>"
+			<input type="number" name="hourRate" id="hourRate" value="<%= studio.hourRate %>"
 				<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-			<!-- <span id='errorTitle' class='errors-text'></span> -->
+			<span id='errorHourRate' class='errors-text'></span>
 
 			<label for="contact">Contact: <span class="symbol-required">*</span></label>
 			<input type="text" name="contact" id="contact" placeholder="2-50 characters" value="<%= studio.contact %>"
 				<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-			<!-- <span id='errorTitle' class='errors-text'></span> -->
+			<span id='errorContact' class='errors-text'></span>
 		
 			<% if (formMode == 'showDetails') { %>
                 <div>
