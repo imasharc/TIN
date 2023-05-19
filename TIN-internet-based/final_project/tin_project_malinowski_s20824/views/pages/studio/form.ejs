@@ -4,38 +4,62 @@
 		<!-- <script type="application/javascript" src="/javascripts/validationCommon.js"></script> -->
 		<script type="application/javascript" src="/javascripts/validationStudioForm.js"></script>
 		<h2><%= pageTitle %></h2>
-		<form class='form' method='post' action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+		<form class='form' method='post' action="<%=formAction%>" novalidate>
 			<input type="hidden" name="id" value="<%= studio.id %>">
 
 			<label for="name">Name: <span class="symbol-required">*</span></label>
-			<input type="text" name="name" id="name" placeholder="2-50 characters" value="<%= studio.name %>"
+			<input type="text" name="name" id="name" placeholder="2-50 characters" value="<%= studio.name %>" class="<%= validationErrors.find(e => e.path.includes('name')) ? 'error-input' : '' %>"
 				<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-			<span id='errorName' class='errors-text'></span>
+			<span id='errorName' class='errors-text'>
+				<% if (validationErrors.find(e => e.path.includes('name'))) { %>
+					<%= validationErrors.find(e => e.path.includes('name')).message %>
+				<% } %>
+			</span>
 
 			<label for="street">Street: <span class="symbol-required">*</span></label>
-			<input type="text" name="street" id="street" placeholder="2-50 characters" value="<%= studio.street %>"
+			<input type="text" name="street" id="street" placeholder="2-50 characters" value="<%= studio.street %>" class="<%= validationErrors.find(e => e.path.includes('street')) ? 'error-input' : '' %>"
 			<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-			<span id="errorStreet" class="errors-text"></span>
+			<span id="errorStreet" class="errors-text">
+				<% if (validationErrors.find(e => e.path.includes('street'))) { %>
+					<%= validationErrors.find(e => e.path.includes('street')).message %>
+				<% } %>
+			</span>
 			
-			<label for="postalCode">Postal Code: </label>
-			<input type="text" name="postalCode" id="postalCode" placeholder="5-50 characters" value="<%= studio.postalCode %>"
+			<label for="postalCode">Postal Code: <span class="symbol-required">*</span></label>
+			<input type="text" name="postalCode" id="postalCode" placeholder="5-50 characters" value="<%= studio.postalCode %>" class="<%= validationErrors.find(e => e.path.includes('postalCode')) ? 'error-input' : '' %>"
 			<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-			<span id="errorPostalCode" class="errors-text"></span>
+			<span id="errorPostalCode" class="errors-text">
+				<% if (validationErrors.find(e => e.path.includes('postalCode'))) { %>
+					<%= validationErrors.find(e => e.path.includes('postalCode')).message %>
+				<% } %>
+			</span>
 
-			<label for="city">City: </label>
-			<input type="text" name="city" id="city" placeholder="5-50 characters" value="<%= studio.city %>"
+			<label for="city">City: <span class="symbol-required">*</span></label>
+			<input type="text" name="city" id="city" placeholder="5-50 characters" value="<%= studio.city %>" class="<%= validationErrors.find(e => e.path.includes('city')) ? 'error-input' : '' %>"
 			<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-			<span id="errorCity" class="errors-text"></span>
+			<span id="errorCity" class="errors-text">
+				<% if (validationErrors.find(e => e.path.includes('city'))) { %>
+					<%= validationErrors.find(e => e.path.includes('city')).message %>
+				<% } %>
+			</span>
 			
 			<label for="hourRate">Hour rate: <span class="symbol-required">*</span></label>
-			<input type="number" name="hourRate" id="hourRate" value="<%= studio.hourRate %>"
+			<input type="number" name="hourRate" id="hourRate" placeholder="60.0" value="<%= studio.hourRate %>" class="<%= validationErrors.find(e => e.path.includes('hourRate')) ? 'error-input' : '' %>"
 				<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-			<span id='errorHourRate' class='errors-text'></span>
+			<span id='errorHourRate' class='errors-text'>
+				<% if (validationErrors.find(e => e.path.includes('hourRate'))) { %>
+					<%= validationErrors.find(e => e.path.includes('hourRate')).message %>
+				<% } %>
+			</span>
 
 			<label for="contact">Contact: <span class="symbol-required">*</span></label>
-			<input type="text" name="contact" id="contact" placeholder="2-50 characters" value="<%= studio.contact %>"
+			<input type="text" name="contact" id="contact" placeholder="2-50 characters" value="<%= studio.contact %>" class="<%= validationErrors.find(e => e.path.includes('contact')) ? 'error-input' : '' %>"
 				<%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-			<span id='errorContact' class='errors-text'></span>
+			<span id='errorContact' class='errors-text'>
+				<% if (validationErrors.find(e => e.path.includes('contact'))) { %>
+					<%= validationErrors.find(e => e.path.includes('contact')).message %>
+				<% } %>
+			</span>
 		
 			<% if (formMode == 'showDetails') { %>
                 <div>

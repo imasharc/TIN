@@ -31,6 +31,7 @@ exports.showAddBookingForm = (req, res, next) => {
         navLocation: "booking",
         allEngineers: allEngineers,
         allStudios: allStudios,
+        validationErrors: [],
       });
     });
 };
@@ -58,6 +59,7 @@ exports.showBookingDetails = (req, res, next) => {
         navLocation: "bookings",
         allEngineers: allEngineers,
         allStudios: allStudios,
+        validationErrors: [],
       });
     });
 };
@@ -85,23 +87,48 @@ exports.showEditBookingForm = (req, res, next) => {
         navLocation: "booking",
         allEngineers: allEngineers,
         allStudios: allStudios,
+        validationErrors: [],
       });
     });
 };
 
 exports.createBooking = (req, res, next) => {
   const bookingData = { ...req.body };
-  BookingRepository.createBooking(bookingData).then((result) => {
-    res.redirect("/bookings");
-  });
+  BookingRepository.createBooking(bookingData)
+    .then((result) => {
+      res.redirect("/bookings");
+    })
+    .catch((err) => {
+      res.render("pages/booking/form", {
+        booking: bookingData,
+        formMode: "createNew",
+        pageTitle: "Adding a booking",
+        btnLabel: "Add booking",
+        formAction: "/bookings/add",
+        navLocation: "booking",
+        validationErrors: err.errors,
+      });
+    });
 };
 
 exports.updateBooking = (req, res, next) => {
   const bookingId = req.body.id;
   const bookingData = { ...req.body };
-  BookingRepository.updateBooking(bookingId, bookingData).then((result) => {
-    res.redirect("/bookings");
-  });
+  BookingRepository.updateBooking(bookingId, bookingData)
+    .then((result) => {
+      res.redirect("/bookings");
+    })
+    .catch((err) => {
+      res.render("pages/booking/form", {
+        booking: bookingData,
+        formMode: "edit",
+        pageTitle: "Edit a booking",
+        btnLabel: "Edit booking",
+        formAction: "/bookings/add",
+        navLocation: "booking",
+        validationErrors: err.errors,
+      });
+    });
 };
 
 exports.deleteBooking = (req, res, next) => {

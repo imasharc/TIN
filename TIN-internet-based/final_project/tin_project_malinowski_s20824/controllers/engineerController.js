@@ -17,6 +17,7 @@ exports.showAddEngineerForm = (req, res, next) => {
     btnLabel: "Add engineer",
     formAction: "/engineers/add",
     navLocation: "engineer",
+    validationErrors: [],
   });
 };
 
@@ -30,6 +31,7 @@ exports.showEngineerDetails = (req, res, next) => {
       // btnLabel: "showDetails"
       formAction: "",
       navLocation: "engineer",
+      validationErrors: [],
     });
   });
 };
@@ -44,23 +46,48 @@ exports.showEditEngineerForm = (req, res, next) => {
       btnLabel: "Edit engineer",
       formAction: "/engineers/edit",
       navLocation: "engineer",
+      validationErrors: [],
     });
   });
 };
 
 exports.addEngineer = (req, res, next) => {
   const engineerData = { ...req.body };
-  EngineerRepository.createEngineer(engineerData).then((result) => {
-    res.redirect("/engineers");
-  });
+  EngineerRepository.createEngineer(engineerData)
+    .then((result) => {
+      res.redirect("/engineers");
+    })
+    .catch((err) => {
+      res.render("pages/engineer/form", {
+        engineer: engineerData,
+        formMode: "createNew",
+        pageTitle: "Adding an engineer",
+        btnLabel: "Add engineer",
+        formAction: "/engineers/add",
+        navLocation: "engineer",
+        validationErrors: err.errors,
+      });
+    });
 };
 
 exports.updateEngineer = (req, res, next) => {
   const engineerId = req.body.id;
   const engineerData = { ...req.body };
-  EngineerRepository.updateEngineer(engineerId, engineerData).then((result) => {
-    res.redirect("/engineers");
-  });
+  EngineerRepository.updateEngineer(engineerId, engineerData)
+    .then((result) => {
+      res.redirect("/engineers");
+    })
+    .catch((err) => {
+      res.render("pages/engineer/form", {
+        engineer: engineerData,
+        formMode: "edit",
+        pageTitle: "Edit an engineer",
+        btnLabel: "Edit engineer",
+        formAction: "/engineers/edit",
+        navLocation: "engineer",
+        validationErrors: err.errors,
+      });
+    });
 };
 
 exports.deleteEngineer = (req, res, next) => {
