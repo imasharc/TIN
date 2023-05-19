@@ -34,8 +34,6 @@ sequelizeInit().catch((err) => {
   console.log(err);
 });
 
-const songApiRouter = require("./routes/api/SongApiRoute");
-app.use("/api/songs", songApiRouter);
 const engineerApiRouter = require("./routes/api/EngineerApiRoute");
 app.use("/api/engineers", engineerApiRouter);
 const bookingApiRouter = require("./routes/api/BookingApiRoute");
