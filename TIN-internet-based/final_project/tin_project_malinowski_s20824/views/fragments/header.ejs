@@ -37,6 +37,7 @@
 	<nav>
 		<ul>
 			<li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">Main page</a></li>
+			<!-- Protecting system functions from unauthorized use. -->
 			<% if (loggedUser) { %>
 				<li><a href="/engineers">Engineers</a></li>
 			<% } %>

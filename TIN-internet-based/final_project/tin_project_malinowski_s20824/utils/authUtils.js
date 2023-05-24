@@ -12,6 +12,7 @@ exports.comparePasswords = (passPlain, passHashed) => {
   return res;
 };
 
+// secure the actions of controllers from typing the link manually in the browser
 exports.permitAuthenticatedUser = (req, res, next) => {
   const loggedUser = req.session.loggedUser;
   if (loggedUser) {

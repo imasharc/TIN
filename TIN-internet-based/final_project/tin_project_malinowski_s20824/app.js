@@ -38,6 +38,7 @@ app.use("/", indexRouter);
 app.use("/about", indexRouter);
 
 const engineerRouter = require("./routes/engineerRoute");
+// Protecting system functions from unauthorized use
 app.use("/engineers", authUtils.permitAuthenticatedUser, engineerRouter);
 const bookingRouter = require("./routes/bookingRoute");
 app.use("/bookings", bookingRouter);

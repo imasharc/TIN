@@ -44,7 +44,7 @@ module.exports = () => {
             specialisation: "Mixing engineer",
             hourRate: 60,
             contact: "janusz.walczuk@nobocoto.pl",
-            password: passHash,
+            password: passHash, // We will use the new hash function when adding records to the database
           },
           {
             firstName: "Michał",
