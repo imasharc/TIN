@@ -49,3 +49,9 @@ exports.deleteEngineer = (engineerId) => {
     },
   });
 };
+
+exports.findByEmail = (email) => {
+  return Engineer.findOne({
+    where: { contact: email },
+  });
+};
