@@ -24,6 +24,7 @@ app.use(
   })
 );
 
+// Adding a function that makes session data available to templates
 app.use((req, res, next) => {
   const loggedUser = req.session.loggedUser;
   res.locals.loggedUser = loggedUser;
