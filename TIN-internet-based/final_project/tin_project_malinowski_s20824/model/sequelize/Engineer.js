@@ -75,6 +75,10 @@ const Engineer = sequelize.define("Engineer", {
       },
     },
   },
+  password: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
 });
 
 module.exports = Engineer;

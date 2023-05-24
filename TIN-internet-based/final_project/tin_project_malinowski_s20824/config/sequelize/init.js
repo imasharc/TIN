@@ -1,4 +1,6 @@
 ﻿const sequelize = require("./sequelize");
+const authUtil = require("../../utils/authUtils");
+const passHash = authUtil.hashPassword("12345");
 
 const Engineer = require("../../model/sequelize/Engineer");
 const Studio = require("../../model/sequelize/Studio");
@@ -42,6 +44,7 @@ module.exports = () => {
             specialisation: "Mixing engineer",
             hourRate: 60,
             contact: "janusz.walczuk@nobocoto.pl",
+            password: passHash,
           },
           {
             firstName: "Michał",
@@ -49,6 +52,7 @@ module.exports = () => {
             specialisation: "Mixing engineer",
             hourRate: 80,
             contact: "wroobel@nobocoto.pl",
+            password: "54321",
           },
           {
             firstName: "Jonathan 'DJ Johny'",
@@ -56,6 +60,7 @@ module.exports = () => {
             specialisation: "Mastering engineer",
             hourRate: 120,
             contact: "djjohny@nobocoto.pl",
+            password: "111111",
           },
         ]).then(() => {
           return Engineer.findAll();
