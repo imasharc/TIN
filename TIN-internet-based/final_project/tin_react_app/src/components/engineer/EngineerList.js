@@ -1,5 +1,7 @@
 ﻿import { Link } from "react-router-dom";
+import { getEngineersApiCall } from "../../apiCalls/engineerApiCalls";
 function EngineerList() {
+  const engineerList = getEngineersApiCall();
   return (
     <main>
       <h2>Engineers</h2>
@@ -14,76 +16,43 @@ function EngineerList() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Jack</td>
-            <td>Hammer</td>
-            <td>Mixing engineer</td>
-            <td>80.0</td>
-            <td>jack.hammer@sharc.com</td>
-            <td>
-              <ul className="list-actions">
-                <li>
-                  <Link
-                    href="/engineers/details/1"
-                    className="list-actions-button-details"
-                  >
-                    Details
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/engineers/edit/1"
-                    className="list-actions-button-edit"
-                  >
-                    Edit
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/engineers/delete/1"
-                    className="list-actions-button-delete"
-                  >
-                    Delete
-                  </Link>
-                </li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <td>Dwight</td>
-            <td>Schnute</td>
-            <td>Mastering engineer</td>
-            <td>120.0</td>
-            <td>dwight.schnute@sharc.com</td>
-            <td>
-              <ul className="list-actions">
-                <li>
-                  <Link
-                    href="/engineers/details/2"
-                    className="list-actions-button-details"
-                  >
-                    Details
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/engineers/edit/2"
-                    className="list-actions-button-edit"
-                  >
-                    Edit
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/engineers/edit/2"
-                    className="list-actions-button-delete"
-                  >
-                    Delete
-                  </Link>
-                </li>
-              </ul>
-            </td>
-          </tr>
+          {engineerList.map((engineer) => (
+            <tr key={engineer.id}>
+              <td>{engineer.firstName}</td>
+              <td>{engineer.lastName}</td>
+              <td>{engineer.specialisation}</td>
+              <td>{engineer.hourRate}</td>
+              <td>{engineer.contact}</td>
+              <td>
+                <ul className="list-actions">
+                  <li>
+                    <Link
+                      to={`engineers/details/${engineer.id}`}
+                      className="list-actions-button-details"
+                    >
+                      Details
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to={`engineers/edit/${engineer.id}`}
+                      className="list-actions-button-edit"
+                    >
+                      Edit
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to={`engineers/delete/${engineer.id}`}
+                      className="list-actions-button-delete"
+                    >
+                      Delete
+                    </Link>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
       <p className="section-buttons">
